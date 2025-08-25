@@ -225,6 +225,32 @@ export default function HomePage() {
         </div>
 
       </div>
+      
+      {/* Footer */}
+      <div style={{ 
+        height: '10px', 
+        backgroundColor: 'transparent',
+        display: 'flex',
+        alignItems: 'center',
+        paddingLeft: '10px',
+        fontFamily: 'Lucida Console, monospace',
+        fontSize: '8px',
+        color: '#666'
+      }}>
+        Website design by{" "}
+        <a 
+          href="https://wa.me/33608251223" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ 
+            color: '#666', 
+            textDecoration: 'none',
+            fontWeight: 'bold'
+          }}
+        >
+          JOSEPH-STUDIO.COM
+        </a>
+      </div>
     </div>
   )
 }
