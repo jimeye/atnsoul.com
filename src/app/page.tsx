@@ -4,9 +4,9 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 
 const portraitImages = [
-  { id: 1, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-1.avif", alt: "Portrait 1" },
-  { id: 2, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-2.avif", alt: "Portrait 2" },
-  { id: 3, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-3.avif", alt: "Portrait 3" },
+  { id: 1, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-1.jpg", alt: "Portrait 1" },
+  { id: 2, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-2.jpg", alt: "Portrait 2" },
+  { id: 3, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-3.jpg", alt: "Portrait 3" },
 ]
 
 export default function HomePage() {
