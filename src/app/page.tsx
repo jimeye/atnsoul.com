@@ -12,6 +12,7 @@ const portraitImages = [
 export default function HomePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [showSpotifyWidget, setShowSpotifyWidget] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
 
   // Défilement automatique toutes les 2 secondes
@@ -32,6 +33,10 @@ export default function HomePage() {
       }
       setIsPlaying(!isPlaying)
     }
+  }
+
+  const toggleSpotifyWidget = () => {
+    setShowSpotifyWidget(!showSpotifyWidget)
   }
   return (
     <div style={{ 
@@ -126,10 +131,8 @@ export default function HomePage() {
                 }}>
                   my playlist
                 </span>
-                <a 
-                  href="https://open.spotify.com/artist/1R9Vrkow58CeVtMm9nDaJb" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <button 
+                  onClick={toggleSpotifyWidget}
                   style={{
                     width: '40px',
                     height: '40px',
@@ -137,7 +140,9 @@ export default function HomePage() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
-                    textDecoration: 'none'
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    padding: 0
                   }}
                 >
                   <span style={{
@@ -146,8 +151,28 @@ export default function HomePage() {
                   }}>
                     🎵
                   </span>
-                </a>
+                </button>
               </div>
+
+              {/* Widget Spotify (affiché conditionnellement) */}
+              {showSpotifyWidget && (
+                <div style={{ 
+                  marginTop: '10px',
+                  width: '100%',
+                  maxWidth: '300px'
+                }}>
+                  <iframe 
+                    src="https://open.spotify.com/embed/artist/1R9Vrkow58CeVtMm9nDaJb?utm_source=generator" 
+                    width="100%" 
+                    height="80" 
+                    frameBorder="0" 
+                    allowFullScreen={true}
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"
+                    style={{ borderRadius: '12px' }}
+                  />
+                </div>
+              )}
             </div>
           </div>
 
