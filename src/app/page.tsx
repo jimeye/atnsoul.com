@@ -74,9 +74,6 @@ export default function HomePage() {
             <div style={{ 
               padding: '10px'
             }}>
-              <div style={{ fontSize: '12px', marginBottom: '10px', color: '#333' }}>
-                Lecteur de musique
-              </div>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 <button style={{ 
                   padding: '5px 10px', 
