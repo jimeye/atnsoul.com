@@ -35,7 +35,6 @@ export default function HomePage() {
         
         {/* Colonne 1 - Rouge */}
         <div style={{ 
-          backgroundColor: '#ffcccc', 
           padding: '0', 
           height: '95vh',
           borderRadius: '0',
@@ -91,7 +90,6 @@ export default function HomePage() {
 
         {/* Colonne 2 - Texte About */}
         <div style={{ 
-          backgroundColor: '#ccccff', 
           padding: '30px', 
           height: '95vh',
           borderRadius: '0',
@@ -130,7 +128,6 @@ export default function HomePage() {
 
         {/* Colonne 3 - Slider d'images */}
         <div style={{ 
-          backgroundColor: '#ccffcc', 
           padding: '20px', 
           height: '92vh',
           borderRadius: '0',
