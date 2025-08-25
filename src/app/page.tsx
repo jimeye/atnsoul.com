@@ -15,6 +15,7 @@ export default function HomePage() {
   const [isSpotifyPlaying, setIsSpotifyPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
   const spotifyRef = useRef<HTMLIFrameElement>(null)
+  const spotifyWindowRef = useRef<Window | null>(null)
 
   // Défilement automatique toutes les 2 secondes
   useEffect(() => {
@@ -38,16 +39,19 @@ export default function HomePage() {
 
   const toggleSpotifyPlay = () => {
     if (isSpotifyPlaying) {
-      // Arrêter Spotify
-      if (spotifyRef.current) {
-        spotifyRef.current.src = "about:blank"
+      // Fermer la popup Spotify
+      if (spotifyWindowRef.current && !spotifyWindowRef.current.closed) {
+        spotifyWindowRef.current.close()
       }
       setIsSpotifyPlaying(false)
     } else {
-      // Démarrer Spotify
-      if (spotifyRef.current) {
-        spotifyRef.current.src = "https://open.spotify.com/embed/artist/1R9Vrkow58CeVtMm9nDaJb?utm_source=generator&autoplay=1"
-      }
+      // Ouvrir Spotify dans une popup
+      const spotifyWindow = window.open(
+        'https://open.spotify.com/artist/1R9Vrkow58CeVtMm9nDaJb',
+        'spotify',
+        'width=400,height=600,scrollbars=yes,resizable=yes'
+      )
+      spotifyWindowRef.current = spotifyWindow
       setIsSpotifyPlaying(true)
     }
   }
@@ -165,29 +169,6 @@ export default function HomePage() {
                     {isSpotifyPlaying ? '⏸' : '🎵'}
                   </span>
                 </button>
-              </div>
-
-              {/* Widget Spotify (petit mais visible pour autoplay) */}
-              <div style={{ 
-                position: 'fixed',
-                bottom: '10px',
-                right: '10px',
-                width: '80px',
-                height: '80px',
-                zIndex: 1000,
-                opacity: isSpotifyPlaying ? 1 : 0.1
-              }}>
-                <iframe 
-                  ref={spotifyRef}
-                  src="about:blank"
-                  width="80" 
-                  height="80" 
-                  frameBorder="0" 
-                  allowFullScreen={true}
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                  loading="lazy"
-                  style={{ borderRadius: '12px' }}
-                />
               </div>
             </div>
           </div>
