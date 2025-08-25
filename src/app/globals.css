@@ -104,11 +104,13 @@
   }
   
   .font-title {
+    @apply font-title;
     font-family: "Helvetica Neue LT Std", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 900;
   }
   
   .font-text {
+    @apply font-text;
     font-family: "Lucida Console", "Courier", "Courier New", monospace;
     font-weight: 400;
   }

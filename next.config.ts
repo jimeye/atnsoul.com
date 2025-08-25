@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   experimental: {
     turbo: false,
   },
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
