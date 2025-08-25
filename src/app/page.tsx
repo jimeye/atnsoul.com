@@ -238,7 +238,7 @@ export default function HomePage() {
         fontSize: '9.2px',
         color: '#ed002a'
       }}>
-        Website design by{" "}
+        Website design by {" "}
         <a 
           href="https://wa.me/33608251223" 
           target="_blank" 
