@@ -145,27 +145,6 @@ export default function HomePage() {
                 }}>
                   apple music
                 </span>
-                <button 
-                  onClick={toggleSpotifyPlay}
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    backgroundColor: 'transparent',
-                    border: 'none',
-                    padding: 0
-                  }}
-                >
-                  <span style={{
-                    color: '#ed002a',
-                    fontSize: '24px'
-                  }}>
-                    {isSpotifyPlaying ? '⏸' : '🎵'}
-                  </span>
-                </button>
               </div>
 
               {/* Widget Apple Music intégré dans la colonne */}
