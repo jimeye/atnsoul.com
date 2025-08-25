@@ -235,8 +235,8 @@ export default function HomePage() {
         alignItems: 'center',
         paddingLeft: '10px',
         fontFamily: 'Lucida Console, monospace',
-        fontSize: '8px',
-        color: '#666'
+        fontSize: '9.2px',
+        color: '#ed002a'
       }}>
         Website design by{" "}
         <a 
@@ -244,7 +244,7 @@ export default function HomePage() {
           target="_blank" 
           rel="noopener noreferrer"
           style={{ 
-            color: '#666', 
+            color: '#ed002a', 
             textDecoration: 'none',
             fontWeight: 'bold'
           }}
