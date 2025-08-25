@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import Link from "next/link"
 
 const portraitImages = [
   { id: 1, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-1.avif", alt: "Portrait 1" },
@@ -111,7 +110,7 @@ export default function HomePage() {
             </p>
             
             <p style={{ marginBottom: '15px' }}>
-              At the age of 14, he began his career by producing beats on his father's MPC before developing versatile skills by playing the guitar, bass, piano, clarinet, and singing.
+              At the age of 14, he began his career by producing beats on his father&apos;s MPC before developing versatile skills by playing the guitar, bass, piano, clarinet, and singing.
             </p>
             
             <p style={{ marginBottom: '15px' }}>
