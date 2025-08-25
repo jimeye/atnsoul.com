@@ -172,7 +172,7 @@ export default function HomePage() {
             about
           </h1>
 
-          <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem' }}>
+          <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.73rem' }}>
             <p style={{ marginBottom: '15px' }}>
               Ethan Fellous, also known by his artist name ATN Soul, is a musician, producer, composer, and lyricist from Paris.
             </p>
