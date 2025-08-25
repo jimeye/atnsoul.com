@@ -246,7 +246,8 @@ export default function HomePage() {
           style={{ 
             color: '#ed002a', 
             textDecoration: 'none',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            marginLeft: '5px'
           }}
         >
           JOSEPH-STUDIO.COM
