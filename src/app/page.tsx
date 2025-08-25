@@ -71,7 +71,38 @@ export default function HomePage() {
 
           {/* Lecteur de musique */}
           <div style={{ marginTop: '26px' }}>
-            <MusicPlayer />
+            <div style={{ 
+              padding: '10px', 
+              border: '1px solid #ccc', 
+              borderRadius: '5px',
+              backgroundColor: '#f9f9f9'
+            }}>
+              <div style={{ fontSize: '12px', marginBottom: '10px', color: '#333' }}>
+                Lecteur de musique
+              </div>
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <button style={{ 
+                  padding: '5px 10px', 
+                  backgroundColor: '#ed002a', 
+                  color: 'white', 
+                  border: 'none', 
+                  borderRadius: '3px',
+                  cursor: 'pointer'
+                }}>
+                  ▶ Play
+                </button>
+                <button style={{ 
+                  padding: '5px 10px', 
+                  backgroundColor: '#666', 
+                  color: 'white', 
+                  border: 'none', 
+                  borderRadius: '3px',
+                  cursor: 'pointer'
+                }}>
+                  ⏸ Pause
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Liens streaming en bas à gauche */}
