@@ -39,15 +39,15 @@ export default function HomePage() {
 
   const toggleSpotifyPlay = () => {
     if (isSpotifyPlaying) {
-      // Arrêter Spotify
+      // Arrêter la musique
       if (spotifyRef.current) {
         spotifyRef.current.src = "about:blank"
       }
       setIsSpotifyPlaying(false)
     } else {
-      // Essayer avec l'API Spotify Web Playback
+      // Essayer avec Apple Music
       if (spotifyRef.current) {
-        spotifyRef.current.src = "https://open.spotify.com/embed/artist/1R9Vrkow58CeVtMm9nDaJb?utm_source=generator&autoplay=1&mute=0&theme=0&controls=1&show_user=true"
+        spotifyRef.current.src = "https://embed.music.apple.com/fr/artist/atn-soul/1455380348?app=music"
       }
       setIsSpotifyPlaying(true)
     }
@@ -143,7 +143,7 @@ export default function HomePage() {
                   fontSize: '0.81rem',
                   marginRight: '-5px'
                 }}>
-                  my playlist
+                  apple music
                 </span>
                 <button 
                   onClick={toggleSpotifyPlay}
@@ -168,22 +168,17 @@ export default function HomePage() {
                 </button>
               </div>
 
-              {/* Widget Spotify visible pour autoplay */}
+              {/* Widget Spotify intégré dans la colonne */}
               {isSpotifyPlaying && (
                 <div style={{ 
-                  position: 'fixed',
-                  bottom: '20px',
-                  right: '20px',
-                  width: '300px',
-                  height: '80px',
-                  zIndex: 1000,
-                  borderRadius: '12px',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                  marginTop: '20px',
+                  width: '100%',
+                  maxWidth: '280px'
                 }}>
                   <iframe 
                     ref={spotifyRef}
                     src="about:blank"
-                    width="300" 
+                    width="100%" 
                     height="80" 
                     frameBorder="0" 
                     allowFullScreen={true}
