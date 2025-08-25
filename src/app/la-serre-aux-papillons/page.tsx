@@ -78,14 +78,10 @@ export default function LaSerrePage() {
           overflow: 'auto'
         }} className="mobile-auto-height">
           <h1 style={{ color: 'black', fontSize: '1.8rem', marginBottom: '20px', fontWeight: 'bold', fontFamily: 'Helvetica Neue LT Std, sans-serif' }}>
-            la serre aux papillons
+            2024
           </h1>
 
           <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem' }}>
-            <p style={{ marginBottom: '15px', fontWeight: 'bold' }}>
-              2024
-            </p>
-            
             <p style={{ marginBottom: '15px', fontWeight: 'bold' }}>
               role : composer & sound designer
             </p>
