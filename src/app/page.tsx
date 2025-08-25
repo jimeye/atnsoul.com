@@ -45,9 +45,9 @@ export default function HomePage() {
       }
       setIsSpotifyPlaying(false)
     } else {
-      // Essayer avec l'album Amarela sur Apple Music
+      // Essayer avec YouTube Music
       if (spotifyRef.current) {
-        spotifyRef.current.src = "https://embed.music.apple.com/fr/album/amarela/1504561234?app=music&autoplay=1"
+        spotifyRef.current.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0&enablejsapi=1"
       }
       setIsSpotifyPlaying(true)
     }
@@ -143,7 +143,7 @@ export default function HomePage() {
                   fontSize: '0.81rem',
                   marginRight: '-5px'
                 }}>
-                  apple music
+                  youtube music
                 </span>
                 <button 
                   onClick={toggleSpotifyPlay}
