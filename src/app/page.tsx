@@ -29,15 +29,15 @@ export default function HomePage() {
       <div className="responsive-grid" style={{ 
         display: 'grid',
         gridTemplateColumns: '1fr 2.1fr 1.9fr',
-        height: '100vh',
+        height: '95vh',
         gap: '0',
-        minHeight: '100vh'
+        minHeight: '95vh'
       }}>
         
         {/* Colonne 1 - Rouge */}
         <div style={{ 
           padding: '0', 
-          height: '95vh',
+          height: '90vh',
           borderRadius: '0',
           position: 'relative'
         }} className="mobile-auto-height">
@@ -99,7 +99,7 @@ export default function HomePage() {
         {/* Colonne 2 - Texte About */}
         <div style={{ 
           padding: '30px', 
-          height: '95vh',
+          height: '90vh',
           borderRadius: '0',
           overflow: 'auto'
         }} className="mobile-auto-height">
@@ -137,7 +137,7 @@ export default function HomePage() {
         {/* Colonne 3 - Slider d'images */}
         <div style={{ 
           padding: '20px', 
-          height: '92vh',
+          height: '87vh',
           borderRadius: '0',
           position: 'relative',
           overflow: 'hidden'
