@@ -92,20 +92,28 @@ export default function HomePage() {
               gap: '10px'
             }}>
               {/* Bouton Play/Pause Audio */}
-              <button 
-                onClick={togglePlay}
-                style={{ 
-                  padding: '5px 10px', 
-                  backgroundColor: 'transparent', 
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <button 
+                  onClick={togglePlay}
+                  style={{ 
+                    padding: '5px 10px', 
+                    backgroundColor: 'transparent', 
+                    color: '#ed002a', 
+                    border: 'none', 
+                    cursor: 'pointer',
+                    fontSize: '16px'
+                  }}
+                >
+                  {isPlaying ? '⏸' : '▶'}
+                </button>
+                <span style={{ 
                   color: '#ed002a', 
-                  border: 'none', 
-                  cursor: 'pointer',
-                  fontSize: '16px',
-                  alignSelf: 'flex-start'
-                }}
-              >
-                {isPlaying ? '⏸' : '▶'}
-              </button>
+                  fontFamily: 'Lucida Console, monospace',
+                  fontSize: '0.8rem'
+                }}>
+                  unavailable
+                </span>
+              </div>
               
               {/* Icône Spotify */}
               <a 
@@ -266,7 +274,7 @@ export default function HomePage() {
             </div>
           )}
 
-          {/* Credit Alan Chicheportiche sur la photo 3 */}
+          {/* Credit Alan Chicheportiche s"ur la photo 3 */}
           {currentImageIndex === 2 && (
             <div style={{ 
               position: 'absolute', 
