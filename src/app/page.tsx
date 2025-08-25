@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { MusicPlayer } from "@/components/music/music-player"
 
 const portraitImages = [
   { id: 1, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-1.jpg", alt: "Portrait 1" },
@@ -66,6 +67,11 @@ export default function HomePage() {
                 Co-Productions
               </a>
             </div>
+          </div>
+
+          {/* Lecteur de musique */}
+          <div style={{ marginTop: '26px' }}>
+            <MusicPlayer />
           </div>
 
           {/* Liens streaming en bas à gauche */}
