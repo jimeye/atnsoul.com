@@ -81,12 +81,12 @@ export default function LaSerrePage() {
             la serre aux papillons - eva wang
           </h1>
 
-          <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.77rem' }}>
+          <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-              <p style={{ fontSize: '0.88rem', margin: 0 }}>
+              <p style={{ fontSize: '0.92rem', margin: 0 }}>
                 role : composer & sound designer
               </p>
-              <p style={{ fontWeight: '300', fontSize: '0.88rem', margin: 0, marginRight: '100px' }}>
+              <p style={{ fontWeight: '300', fontSize: '0.92rem', margin: 0, marginRight: '100px' }}>
                 2024
               </p>
             </div>
