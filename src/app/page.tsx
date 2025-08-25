@@ -14,7 +14,7 @@ export default function HomePage() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isSpotifyPlaying, setIsSpotifyPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
-  const spotifyRef = useRef<HTMLIFrameElement>(null)
+  const spotifyRef = useRef<HTMLAudioElement>(null)
   const spotifyWindowRef = useRef<Window | null>(null)
 
   // Défilement automatique toutes les 2 secondes
@@ -45,9 +45,9 @@ export default function HomePage() {
       }
       setIsSpotifyPlaying(false)
     } else {
-      // Démarrer Spotify avec une playlist spécifique
+      // Essayer avec un fichier audio direct
       if (spotifyRef.current) {
-        spotifyRef.current.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&autoplay=1&mute=0&theme=0&controls=1"
+        spotifyRef.current.src = "/audio/atnsoul-track.mp3"
       }
       setIsSpotifyPlaying(true)
     }
@@ -180,16 +180,15 @@ export default function HomePage() {
                   borderRadius: '12px',
                   boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
                 }}>
-                  <iframe 
+                  <audio 
                     ref={spotifyRef}
-                    src="about:blank"
-                    width="300" 
-                    height="80" 
-                    frameBorder="0" 
-                    allowFullScreen={true}
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                    loading="lazy"
-                    style={{ borderRadius: '12px' }}
+                    controls
+                    autoPlay
+                    style={{ 
+                      width: '100%', 
+                      height: '100%',
+                      borderRadius: '12px'
+                    }}
                   />
                 </div>
               )}
