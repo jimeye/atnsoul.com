@@ -41,11 +41,13 @@ export default function HomePage() {
           position: 'relative'
         }} className="mobile-auto-height">
           {/* Logo ATN SOUL */}
-          <img 
-            src="/atn-soul-website-typo-producer-paris-ultra-soul-ultrasoul.png" 
-            alt="ATN SOUL" 
-            style={{ width: '88%', height: 'auto', marginBottom: '46px', marginLeft: '0%' }}
-          />
+          <a href="/" style={{ textDecoration: 'none' }}>
+            <img 
+              src="/atn-soul-website-typo-producer-paris-ultra-soul-ultrasoul.png" 
+              alt="ATN SOUL" 
+              style={{ width: '88%', height: 'auto', marginBottom: '46px', marginLeft: '0%' }}
+            />
+          </a>
           
           {/* Navigation */}
           <div style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem' }}>
