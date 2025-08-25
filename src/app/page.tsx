@@ -167,23 +167,26 @@ export default function HomePage() {
                 </button>
               </div>
 
-              {/* Widget Spotify (masqué mais actif) */}
+              {/* Widget Spotify (petit mais visible pour autoplay) */}
               <div style={{ 
-                position: 'absolute',
-                left: '-9999px',
-                width: '1px',
-                height: '1px',
-                overflow: 'hidden'
+                position: 'fixed',
+                bottom: '10px',
+                right: '10px',
+                width: '80px',
+                height: '80px',
+                zIndex: 1000,
+                opacity: isSpotifyPlaying ? 1 : 0.1
               }}>
                 <iframe 
                   ref={spotifyRef}
                   src="about:blank"
-                  width="1" 
-                  height="1" 
+                  width="80" 
+                  height="80" 
                   frameBorder="0" 
                   allowFullScreen={true}
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                   loading="lazy"
+                  style={{ borderRadius: '12px' }}
                 />
               </div>
             </div>
