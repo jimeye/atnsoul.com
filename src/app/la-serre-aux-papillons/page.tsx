@@ -82,11 +82,11 @@ export default function LaSerrePage() {
           </h1>
 
           <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem' }}>
-            <p style={{ marginBottom: '15px', fontSize: '0.93rem', marginTop: '0px' }}>
+            <p style={{ marginBottom: '15px', fontSize: '0.93rem', textAlign: 'right' }}>
               role : composer & sound designer
             </p>
             
-            <p style={{ marginBottom: '15px', fontWeight: '300', fontSize: '0.93rem' }}>
+            <p style={{ marginBottom: '15px', fontWeight: '300', fontSize: '0.93rem', textAlign: 'right' }}>
               2024
             </p>
             
