@@ -52,7 +52,7 @@ export default function LaSerrePage() {
 
           {/* Navigation */}
           <div style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '10px' }}>
-            <div style={{ color: 'black', marginBottom: '17px' }}>About</div>
+            <a href="/" style={{ color: 'black', textDecoration: 'none', marginBottom: '17px', display: 'block' }}>About</a>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <a href="/la-serre-aux-papillons" style={{ color: '#ed002a', textDecoration: 'none' }}>
                 La Serre aux Papillons (Film)
