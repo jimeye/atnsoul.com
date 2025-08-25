@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://atnsoul.com/sitemap.xml

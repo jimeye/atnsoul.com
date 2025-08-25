@@ -1,103 +1,228 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
+
+const portraitImages = [
+  { id: 1, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-1.avif", alt: "Portrait 1" },
+  { id: 2, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-2.avif", alt: "Portrait 2" },
+  { id: 3, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-3.avif", alt: "Portrait 3" },
+]
+
+export default function HomePage() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  // Défilement automatique toutes les 2 secondes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % portraitImages.length)
+    }, 2000)
+
+    return () => clearInterval(interval)
+  }, [])
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div style={{ 
+      padding: '0', 
+      margin: '0', 
+      minHeight: '100vh'
+    }}>
+      <div className="responsive-grid" style={{ 
+        display: 'grid',
+        gridTemplateColumns: '1fr 2.1fr 1.9fr',
+        height: '100vh',
+        gap: '0',
+        minHeight: '100vh'
+      }}>
+        
+        {/* Colonne 1 - Rouge */}
+        <div style={{ 
+          backgroundColor: '#ffcccc', 
+          border: '4px solid #ff0000', 
+          padding: '0', 
+          height: '95vh',
+          borderRadius: '0',
+          position: 'relative'
+        }} className="mobile-auto-height">
+          {/* Logo ATN SOUL */}
+          <img 
+            src="/atn-soul-website-typo-producer-paris-ultra-soul-ultrasoul.png" 
+            alt="ATN SOUL" 
+            style={{ width: '103.5%', height: 'auto', marginBottom: '46px', marginLeft: '-15%' }}
+          />
+          
+          {/* Navigation */}
+          <div style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem' }}>
+            <div style={{ color: 'black', marginBottom: '17px' }}>About</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+              <a href="/la-serre-aux-papillons" style={{ color: 'black', textDecoration: 'none' }}>
+                La Serre aux Papillons (Film)
+              </a>
+              <a href="/nyc-sessions" style={{ color: 'black', textDecoration: 'none' }}>
+                NYC Sessions (Performance)
+              </a>
+              <a href="/amarela" style={{ color: 'black', textDecoration: 'none' }}>
+                Amarela (LP)
+              </a>
+              <a href="/co-productions" style={{ color: 'black', textDecoration: 'none' }}>
+                Co-Productions
+              </a>
+            </div>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          {/* Liens streaming en bas à gauche */}
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '20px', 
+            left: '0', 
+            fontFamily: 'Lucida Console, monospace', 
+            fontSize: '0.72rem',
+            textAlign: 'left'
+          }}>
+            <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
+            <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-start' }}>
+              <a href="https://music.apple.com" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+                Apple Music
+              </a>
+              <span style={{ color: '#0066cc' }}>|</span>
+              <a href="https://open.spotify.com" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+                Spotify
+              </a>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Colonne 2 - Texte About */}
+        <div style={{ 
+          backgroundColor: '#ccccff', 
+          border: '4px solid #0000ff', 
+          padding: '30px', 
+          height: '95vh',
+          borderRadius: '0',
+          overflow: 'auto'
+        }} className="mobile-auto-height">
+          <h1 style={{ color: 'black', fontSize: '1.8rem', marginBottom: '20px', fontWeight: 'bold', fontFamily: 'Helvetica Neue LT Std, sans-serif' }}>
+            about
+          </h1>
+
+          <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem' }}>
+            <p style={{ marginBottom: '15px' }}>
+              Ethan Fellous, also known by his artist name ATN Soul, is a musician, producer, composer, and lyricist from Paris.
+            </p>
+            
+            <p style={{ marginBottom: '15px' }}>
+              At the age of 14, he began his career by producing beats on his father's MPC before developing versatile skills by playing the guitar, bass, piano, clarinet, and singing.
+            </p>
+            
+            <p style={{ marginBottom: '15px' }}>
+              After releasing a first Hip Hop / House LP at the age of 17, Ethan moved to Berlin to study music production at University. Ironically, he ended up re-discovering his deep love for Jazz harmony in the Techno capital of the world.
+            </p>
+            
+            <p style={{ marginBottom: '15px' }}>
+              Collaborating on two projects with the Israeli singer Noamle, Ethan affirmed his inclination for a contemporary approach to Pop, blending Jazz elements, Electronic sounds and Neo Soul grooves.
+            </p>
+            
+            <p style={{ marginBottom: '15px' }}>
+              Upon his return to Paris, he decided to perfect his composition skills by studying Jazz harmony at the conservatory.
+            </p>
+            
+            <p style={{ marginBottom: '15px' }}>
+              Currently, Ethan is dedicated to making a transmedia music - documentary film while preparing for his first solo album and producing for other artists.
+            </p>
+          </div>
+        </div>
+
+        {/* Colonne 3 - Slider d'images */}
+        <div style={{ 
+          backgroundColor: '#ccffcc', 
+          border: '4px solid #00ff00', 
+          padding: '20px', 
+          height: '92vh',
+          borderRadius: '0',
+          position: 'relative',
+          overflow: 'hidden'
+        }} className="mobile-auto-height">
+          {/* Image actuelle avec marge blanche */}
+          <div style={{ 
+            position: 'absolute', 
+            top: '30px', 
+            left: '30px', 
+            right: '30px', 
+            bottom: '30px', 
+            backgroundColor: 'white',
+            overflow: 'hidden'
+          }}>
+            <Image
+              src={portraitImages[currentImageIndex].src}
+              alt={portraitImages[currentImageIndex].alt}
+              fill
+              style={{ objectFit: 'cover' }}
+              priority
+            />
+          </div>
+
+          {/* Numérotation en haut à droite sur la photo */}
+          <div style={{ 
+            position: 'absolute', 
+            top: '40px', 
+            right: '40px',
+            color: '#ed002a',
+            fontSize: '11px',
+            fontWeight: 'bold',
+            fontFamily: 'Lucida Console, monospace'
+          }}>
+            {currentImageIndex + 1}/3
+          </div>
+
+          {/* Credit Melanie Elbaz sur la photo 1 */}
+          {currentImageIndex === 0 && (
+            <div style={{ 
+              position: 'absolute', 
+              bottom: '40px', 
+              left: '40px',
+              color: '#ed002a',
+              fontSize: '11px',
+              fontWeight: 'bold',
+              fontFamily: 'Lucida Console, monospace'
+            }}>
+              Credit: Melanie Elbaz
+            </div>
+          )}
+
+          {/* Credit Nina Andersson sur la photo 2 */}
+          {currentImageIndex === 1 && (
+            <div style={{ 
+              position: 'absolute', 
+              bottom: '40px', 
+              left: '40px',
+              color: '#ed002a',
+              fontSize: '11px',
+              fontWeight: 'bold',
+              fontFamily: 'Lucida Console, monospace'
+            }}>
+              Credit: Nina Andersson
+            </div>
+          )}
+
+          {/* Credit Alan Chicheportiche sur la photo 3 */}
+          {currentImageIndex === 2 && (
+            <div style={{ 
+              position: 'absolute', 
+              bottom: '40px', 
+              left: '40px',
+              color: '#ed002a',
+              fontSize: '11px',
+              fontWeight: 'bold',
+              fontFamily: 'Lucida Console, monospace'
+            }}>
+              Credit: Alan Chicheportiche
+            </div>
+          )}
+
+
+        </div>
+
+      </div>
     </div>
-  );
+  )
 }
