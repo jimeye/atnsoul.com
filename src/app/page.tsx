@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { MusicPlayer } from "@/components/music/music-player"
 
 const portraitImages = [
@@ -11,6 +11,8 @@ const portraitImages = [
 
 export default function HomePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement>(null)
 
   // Défilement automatique toutes les 2 secondes
   useEffect(() => {
@@ -20,6 +22,17 @@ export default function HomePage() {
 
     return () => clearInterval(interval)
   }, [])
+
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }
   return (
     <div style={{ 
       padding: '0', 
@@ -69,21 +82,31 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Lecteur Spotify */}
+          {/* Lecteur Audio + Spotify */}
           <div style={{ marginTop: '26px' }}>
+            <audio ref={audioRef} src="/audio/atnsoul-track.mp3" />
             <div style={{ 
               padding: '10px',
               display: 'flex',
               alignItems: 'center',
-              gap: '10px'
+              gap: '15px'
             }}>
-              <span style={{ 
-                color: '#ed002a', 
-                fontFamily: 'Lucida Console, monospace',
-                fontSize: '0.8rem'
-              }}>
-                My Playlist
-              </span>
+              {/* Bouton Play/Pause Audio */}
+              <button 
+                onClick={togglePlay}
+                style={{ 
+                  padding: '5px 10px', 
+                  backgroundColor: 'transparent', 
+                  color: '#ed002a', 
+                  border: 'none', 
+                  cursor: 'pointer',
+                  fontSize: '16px'
+                }}
+              >
+                {isPlaying ? '⏸' : '▶'}
+              </button>
+              
+              {/* Icône Spotify */}
               <div style={{
                 width: '40px',
                 height: '40px',
@@ -96,7 +119,7 @@ export default function HomePage() {
                   color: '#ed002a',
                   fontSize: '24px'
                 }}>
-                  ▶
+                  🎵
                 </span>
               </div>
             </div>
