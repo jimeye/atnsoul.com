@@ -77,7 +77,7 @@ export default function LaSerrePage() {
           borderRadius: '0',
           overflow: 'auto'
         }} className="mobile-auto-height">
-          <h1 style={{ color: 'black', fontSize: '1.8rem', marginBottom: '10px', fontWeight: 'bold', fontFamily: 'Helvetica Neue LT Std, sans-serif' }}>
+          <h1 style={{ color: 'black', fontSize: '1.8rem', marginBottom: '5px', fontWeight: 'bold', fontFamily: 'Helvetica Neue LT Std, sans-serif' }}>
             la serre aux papillons - eva wang
           </h1>
 
