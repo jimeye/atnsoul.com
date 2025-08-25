@@ -82,13 +82,14 @@ export default function LaSerrePage() {
           </h1>
 
           <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem' }}>
-            <p style={{ marginBottom: '15px', fontSize: '0.93rem' }}>
-              role : composer & sound designer
-            </p>
-            
-            <p style={{ marginBottom: '15px', fontWeight: '300', fontSize: '0.93rem', textAlign: 'right' }}>
-              2024
-            </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+              <p style={{ fontSize: '0.93rem', margin: 0 }}>
+                role : composer & sound designer
+              </p>
+              <p style={{ fontWeight: '300', fontSize: '0.93rem', margin: 0 }}>
+                2024
+              </p>
+            </div>
             
             <p style={{ marginBottom: '15px' }}>
               The Butterfly House by Paris-based filmmaker Eva Wang is a film about metamorphosis, and the transition from adolescence to adulthood.
