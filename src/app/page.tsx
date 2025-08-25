@@ -84,29 +84,23 @@ export default function HomePage() {
 
           {/* Lecteur de musique */}
           <div style={{ marginTop: '26px' }}>
+            <audio ref={audioRef} src="/audio/atnsoul-track.mp3" />
             <div style={{ 
               padding: '10px'
             }}>
               <div style={{ display: 'flex', gap: '-12px', alignItems: 'center' }}>
-                <button style={{ 
-                  padding: '5px 10px', 
-                  backgroundColor: 'transparent', 
-                  color: '#ed002a', 
-                  border: 'none', 
-                  cursor: 'pointer',
-                  fontSize: '16px'
-                }}>
-                  ▶
-                </button>
-                <button style={{ 
-                  padding: '5px 10px', 
-                  backgroundColor: 'transparent', 
-                  color: '#ed002a', 
-                  border: 'none', 
-                  cursor: 'pointer',
-                  fontSize: '16px'
-                }}>
-                  ⏸
+                <button 
+                  onClick={togglePlay}
+                  style={{ 
+                    padding: '5px 10px', 
+                    backgroundColor: 'transparent', 
+                    color: '#ed002a', 
+                    border: 'none', 
+                    cursor: 'pointer',
+                    fontSize: '16px'
+                  }}
+                >
+                  {isPlaying ? '⏸' : '▶'}
                 </button>
               </div>
             </div>
