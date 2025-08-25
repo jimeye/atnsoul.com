@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { MusicPlayer } from "@/components/music/music-player"
 
 const portraitImages = [
@@ -11,6 +11,8 @@ const portraitImages = [
 
 export default function HomePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement>(null)
 
   // Défilement automatique toutes les 2 secondes
   useEffect(() => {
@@ -20,6 +22,17 @@ export default function HomePage() {
 
     return () => clearInterval(interval)
   }, [])
+
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }
   return (
     <div style={{ 
       padding: '0', 
@@ -74,11 +87,11 @@ export default function HomePage() {
             <div style={{ 
               padding: '10px'
             }}>
-              <div style={{ display: 'flex', gap: '-2px', alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: '-7px', alignItems: 'center' }}>
                 <button style={{ 
                   padding: '5px 10px', 
                   backgroundColor: 'transparent', 
-                  color: '#333', 
+                  color: '#ed002a', 
                   border: 'none', 
                   cursor: 'pointer',
                   fontSize: '16px'
@@ -88,7 +101,7 @@ export default function HomePage() {
                 <button style={{ 
                   padding: '5px 10px', 
                   backgroundColor: 'transparent', 
-                  color: '#333', 
+                  color: '#ed002a', 
                   border: 'none', 
                   cursor: 'pointer',
                   fontSize: '16px'
