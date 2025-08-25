@@ -96,7 +96,7 @@ export default function HomePage() {
                 <span style={{ 
                   color: '#ed002a', 
                   fontFamily: 'Lucida Console, monospace',
-                  fontSize: '0.8rem',
+                  fontSize: '0.81rem',
                   marginRight: '-5px'
                 }}>
                   unreleasable
@@ -121,7 +121,7 @@ export default function HomePage() {
                 <span style={{ 
                   color: '#ed002a', 
                   fontFamily: 'Lucida Console, monospace',
-                  fontSize: '0.8rem',
+                  fontSize: '0.81rem',
                   marginRight: '-5px'
                 }}>
                   my playlist
