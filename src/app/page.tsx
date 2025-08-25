@@ -45,9 +45,9 @@ export default function HomePage() {
       }
       setIsSpotifyPlaying(false)
     } else {
-      // Démarrer Spotify avec différents paramètres
+      // Démarrer Spotify avec une playlist spécifique
       if (spotifyRef.current) {
-        spotifyRef.current.src = "https://open.spotify.com/embed/artist/1R9Vrkow58CeVtMm9nDaJb?utm_source=generator&autoplay=1&mute=0&theme=0"
+        spotifyRef.current.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&autoplay=1&mute=0&theme=0&controls=1"
       }
       setIsSpotifyPlaying(true)
     }
