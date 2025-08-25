@@ -40,14 +40,15 @@ export default function HomePage() {
   const toggleSpotifyPlay = () => {
     if (isSpotifyPlaying) {
       // Arrêter la musique
-      if (spotifyRef.current) {
-        spotifyRef.current.src = "about:blank"
+      if (audioRef.current) {
+        audioRef.current.pause()
       }
       setIsSpotifyPlaying(false)
     } else {
-      // Essayer avec YouTube Music
-      if (spotifyRef.current) {
-        spotifyRef.current.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0&enablejsapi=1"
+      // Jouer directement le fichier MP3 avec l'API Web Audio
+      if (audioRef.current) {
+        audioRef.current.src = "/audio/atnsoul-track.mp3"
+        audioRef.current.play()
       }
       setIsSpotifyPlaying(true)
     }
@@ -118,7 +119,7 @@ export default function HomePage() {
                   fontSize: '0.81rem',
                   marginRight: '-5px'
                 }}>
-                  unreleased
+                  local audio
                 </span>
                 <button 
                   onClick={togglePlay}
@@ -167,27 +168,6 @@ export default function HomePage() {
                   </span>
                 </button>
               </div>
-
-              {/* Widget Spotify intégré dans la colonne */}
-              {isSpotifyPlaying && (
-                <div style={{ 
-                  marginTop: '20px',
-                  width: '100%',
-                  maxWidth: '280px'
-                }}>
-                  <iframe 
-                    ref={spotifyRef}
-                    src="about:blank"
-                    width="100%" 
-                    height="80" 
-                    frameBorder="0" 
-                    allowFullScreen={true}
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                    loading="lazy"
-                    style={{ borderRadius: '12px' }}
-                  />
-                </div>
-              )}
             </div>
           </div>
 
