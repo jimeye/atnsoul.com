@@ -86,7 +86,7 @@ export default function LaSerrePage() {
               <p style={{ fontSize: '0.93rem', margin: 0 }}>
                 role : composer & sound designer
               </p>
-              <p style={{ fontWeight: '300', fontSize: '0.93rem', margin: 0 }}>
+              <p style={{ fontWeight: '300', fontSize: '0.93rem', margin: 0, marginRight: '100px' }}>
                 2024
               </p>
             </div>
