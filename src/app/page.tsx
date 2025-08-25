@@ -40,15 +40,14 @@ export default function HomePage() {
   const toggleSpotifyPlay = () => {
     if (isSpotifyPlaying) {
       // Arrêter la musique
-      if (audioRef.current) {
-        audioRef.current.pause()
+      if (spotifyRef.current) {
+        spotifyRef.current.src = "about:blank"
       }
       setIsSpotifyPlaying(false)
     } else {
-      // Jouer directement le fichier MP3 avec l'API Web Audio
-      if (audioRef.current) {
-        audioRef.current.src = "/audio/atnsoul-track.mp3"
-        audioRef.current.play()
+      // Essayer avec Apple Music
+      if (spotifyRef.current) {
+        spotifyRef.current.src = "https://embed.music.apple.com/fr/artist/atn-soul/1455380348?app=music&autoplay=1"
       }
       setIsSpotifyPlaying(true)
     }
@@ -119,7 +118,7 @@ export default function HomePage() {
                   fontSize: '0.81rem',
                   marginRight: '-5px'
                 }}>
-                  local audio
+                  apple music
                 </span>
                 <button 
                   onClick={togglePlay}
@@ -168,6 +167,27 @@ export default function HomePage() {
                   </span>
                 </button>
               </div>
+
+              {/* Widget Apple Music intégré dans la colonne */}
+              {isSpotifyPlaying && (
+                <div style={{ 
+                  marginTop: '20px',
+                  width: '100%',
+                  maxWidth: '280px'
+                }}>
+                  <iframe 
+                    ref={spotifyRef}
+                    src="about:blank"
+                    width="100%" 
+                    height="80" 
+                    frameBorder="0" 
+                    allowFullScreen={true}
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"
+                    style={{ borderRadius: '12px' }}
+                  />
+                </div>
+              )}
             </div>
           </div>
 
@@ -183,7 +203,7 @@ export default function HomePage() {
           }}>
             <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-start' }}>
-              <a href="https://music.apple.com" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+              <a href="https://music.apple.com/fr/artist/atn-soul/1455380348" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
                 Apple Music
               </a>
               <span style={{ color: '#0066cc' }}>|</span>
