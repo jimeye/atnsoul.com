@@ -39,19 +39,16 @@ export default function HomePage() {
 
   const toggleSpotifyPlay = () => {
     if (isSpotifyPlaying) {
-      // Fermer la popup Spotify
-      if (spotifyWindowRef.current && !spotifyWindowRef.current.closed) {
-        spotifyWindowRef.current.close()
+      // Arrêter Spotify
+      if (spotifyRef.current) {
+        spotifyRef.current.src = "about:blank"
       }
       setIsSpotifyPlaying(false)
     } else {
-      // Ouvrir Spotify dans une popup
-      const spotifyWindow = window.open(
-        'https://open.spotify.com/artist/1R9Vrkow58CeVtMm9nDaJb',
-        'spotify',
-        'width=400,height=600,scrollbars=yes,resizable=yes'
-      )
-      spotifyWindowRef.current = spotifyWindow
+      // Démarrer Spotify avec différents paramètres
+      if (spotifyRef.current) {
+        spotifyRef.current.src = "https://open.spotify.com/embed/artist/1R9Vrkow58CeVtMm9nDaJb?utm_source=generator&autoplay=1&mute=0&theme=0"
+      }
       setIsSpotifyPlaying(true)
     }
   }
@@ -170,6 +167,32 @@ export default function HomePage() {
                   </span>
                 </button>
               </div>
+
+              {/* Widget Spotify visible pour autoplay */}
+              {isSpotifyPlaying && (
+                <div style={{ 
+                  position: 'fixed',
+                  bottom: '20px',
+                  right: '20px',
+                  width: '300px',
+                  height: '80px',
+                  zIndex: 1000,
+                  borderRadius: '12px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                }}>
+                  <iframe 
+                    ref={spotifyRef}
+                    src="about:blank"
+                    width="300" 
+                    height="80" 
+                    frameBorder="0" 
+                    allowFullScreen={true}
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"
+                    style={{ borderRadius: '12px' }}
+                  />
+                </div>
+              )}
             </div>
           </div>
 
