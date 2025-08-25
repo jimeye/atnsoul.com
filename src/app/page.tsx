@@ -45,9 +45,9 @@ export default function HomePage() {
       }
       setIsSpotifyPlaying(false)
     } else {
-      // Essayer avec Apple Music
+      // Essayer avec l'album Amarela sur Apple Music
       if (spotifyRef.current) {
-        spotifyRef.current.src = "https://embed.music.apple.com/fr/artist/atn-soul/1455380348?app=music"
+        spotifyRef.current.src = "https://embed.music.apple.com/fr/album/amarela/1504561234?app=music&autoplay=1"
       }
       setIsSpotifyPlaying(true)
     }
