@@ -50,7 +50,7 @@ export default function HomePage() {
           </a>
           
           {/* Navigation */}
-          <div style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem' }}>
+          <div style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '5px' }}>
             <div style={{ color: 'black', marginBottom: '17px' }}>About</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <a href="/la-serre-aux-papillons" style={{ color: 'black', textDecoration: 'none' }}>
