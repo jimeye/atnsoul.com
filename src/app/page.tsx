@@ -88,8 +88,8 @@ export default function HomePage() {
             <div style={{ 
               padding: '10px',
               display: 'flex',
-              alignItems: 'center',
-              gap: '15px'
+              flexDirection: 'column',
+              gap: '10px'
             }}>
               {/* Bouton Play/Pause Audio */}
               <button 
@@ -100,7 +100,8 @@ export default function HomePage() {
                   color: '#ed002a', 
                   border: 'none', 
                   cursor: 'pointer',
-                  fontSize: '16px'
+                  fontSize: '16px',
+                  alignSelf: 'flex-start'
                 }}
               >
                 {isPlaying ? '⏸' : '▶'}
@@ -118,7 +119,8 @@ export default function HomePage() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   cursor: 'pointer',
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  alignSelf: 'flex-start'
                 }}
               >
                 <span style={{
