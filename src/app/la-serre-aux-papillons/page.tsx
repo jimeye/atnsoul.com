@@ -139,6 +139,28 @@ export default function LaSerrePage() {
               borderRadius: '0'
             }}
           />
+          
+          {/* Lien Girls In Film sous la photo */}
+          <div style={{
+            position: 'absolute',
+            bottom: '10px',
+            left: '20px',
+            fontFamily: 'Lucida Console, monospace',
+            fontSize: '0.7rem'
+          }}>
+            <a 
+              href="https://www.girlsinfilm.net/videos/the-butterfly-house" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                color: '#0066cc',
+                textDecoration: 'none'
+              }}
+            >
+              Screenshot 2024-06-06 at 18.38.01.png<br />
+              distributed through Girls In Film
+            </a>
+          </div>
         </div>
 
       </div>
