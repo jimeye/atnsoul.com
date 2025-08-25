@@ -70,7 +70,8 @@ export default function AmarelaPage() {
             </Link>
             
             <motion.h1
-              className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-title text-white mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl text-white mb-6 leading-tight"
+            style={{ fontFamily: '"Helvetica Neue LT Std", "Helvetica Neue", Helvetica, Arial, sans-serif', fontWeight: 900 }}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
