@@ -74,7 +74,7 @@ export default function HomePage() {
             <div style={{ 
               padding: '10px'
             }}>
-              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: '5px', alignItems: 'center' }}>
                 <button style={{ 
                   padding: '5px 10px', 
                   backgroundColor: 'transparent', 
