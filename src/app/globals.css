@@ -103,17 +103,7 @@
     @apply backdrop-blur-md bg-black/10 border border-white/10;
   }
   
-  .font-title {
-    @apply font-title;
-    font-family: "Helvetica Neue LT Std", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 900;
-  }
-  
-  .font-text {
-    @apply font-text;
-    font-family: "Lucida Console", "Courier", "Courier New", monospace;
-    font-weight: 400;
-  }
+
 
   /* Responsive layout */
   @media (max-width: 1024px) {
@@ -163,5 +153,15 @@
   
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
     background-color: hsl(var(--foreground));
+  }
+  
+  .font-title {
+    font-family: "Helvetica Neue LT Std", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 900;
+  }
+  
+  .font-text {
+    font-family: "Lucida Console", "Courier", "Courier New", monospace;
+    font-weight: 400;
   }
 }
