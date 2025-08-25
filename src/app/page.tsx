@@ -44,7 +44,7 @@ export default function HomePage() {
           <img 
             src="/atn-soul-website-typo-producer-paris-ultra-soul-ultrasoul.png" 
             alt="ATN SOUL" 
-            style={{ width: '103.5%', height: 'auto', marginBottom: '46px', marginLeft: '-15%' }}
+            style={{ width: '88%', height: 'auto', marginBottom: '46px', marginLeft: '-15%' }}
           />
           
           {/* Navigation */}
