@@ -104,7 +104,7 @@ export default function HomePage() {
                   fontSize: '0.81rem',
                   marginRight: '-5px'
                 }}>
-                  unreleasable
+                  unreleased
                 </span>
                 <button 
                   onClick={togglePlay}
