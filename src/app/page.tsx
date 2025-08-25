@@ -143,7 +143,7 @@ export default function HomePage() {
                   fontSize: '0.81rem',
                   marginRight: '-5px'
                 }}>
-                  youtube music
+                  apple music
                 </span>
                 <button 
                   onClick={toggleSpotifyPlay}
