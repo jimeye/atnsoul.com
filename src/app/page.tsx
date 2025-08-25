@@ -93,6 +93,14 @@ export default function HomePage() {
             }}>
               {/* Bouton Play/Pause Audio */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ 
+                  color: '#ed002a', 
+                  fontFamily: 'Lucida Console, monospace',
+                  fontSize: '0.8rem',
+                  marginRight: '-5px'
+                }}>
+                  unreleasable
+                </span>
                 <button 
                   onClick={togglePlay}
                   style={{ 
@@ -106,18 +114,18 @@ export default function HomePage() {
                 >
                   {isPlaying ? '⏸' : '▶'}
                 </button>
-                <span style={{ 
-                  color: '#ed002a', 
-                  fontFamily: 'Lucida Console, monospace',
-                  fontSize: '0.8rem',
-                  marginLeft: '-5px'
-                }}>
-                  unreleasable
-                </span>
               </div>
               
               {/* Icône Spotify */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ 
+                  color: '#ed002a', 
+                  fontFamily: 'Lucida Console, monospace',
+                  fontSize: '0.8rem',
+                  marginRight: '-5px'
+                }}>
+                  my playlist
+                </span>
                 <a 
                   href="https://open.spotify.com/artist/1R9Vrkow58CeVtMm9nDaJb" 
                   target="_blank" 
@@ -139,14 +147,6 @@ export default function HomePage() {
                     🎵
                   </span>
                 </a>
-                <span style={{ 
-                  color: '#ed002a', 
-                  fontFamily: 'Lucida Console, monospace',
-                  fontSize: '0.8rem',
-                  marginLeft: '-5px'
-                }}>
-                  my playlist
-                </span>
               </div>
             </div>
           </div>
