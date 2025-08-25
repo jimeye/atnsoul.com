@@ -90,10 +90,6 @@ export default function LaSerrePage() {
               2024
             </p>
             
-            <p style={{ marginBottom: '15px', fontWeight: 'bold' }}>
-              la serre aux papillons - eva wang
-            </p>
-            
             <p style={{ marginBottom: '15px' }}>
               The Butterfly House by Paris-based filmmaker Eva Wang is a film about metamorphosis, and the transition from adolescence to adulthood.
             </p>
