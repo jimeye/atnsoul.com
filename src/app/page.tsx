@@ -116,28 +116,36 @@ export default function HomePage() {
               </div>
               
               {/* Icône Spotify */}
-              <a 
-                href="https://open.spotify.com/artist/1R9Vrkow58CeVtMm9nDaJb" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={{
-                  width: '40px',
-                  height: '40px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                  textDecoration: 'none',
-                  alignSelf: 'flex-start'
-                }}
-              >
-                <span style={{
-                  color: '#ed002a',
-                  fontSize: '24px'
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <a 
+                  href="https://open.spotify.com/artist/1R9Vrkow58CeVtMm9nDaJb" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <span style={{
+                    color: '#ed002a',
+                    fontSize: '24px'
+                  }}>
+                    🎵
+                  </span>
+                </a>
+                <span style={{ 
+                  color: '#ed002a', 
+                  fontFamily: 'Lucida Console, monospace',
+                  fontSize: '0.8rem'
                 }}>
-                  🎵
+                  my playlist
                 </span>
-              </a>
+              </div>
             </div>
           </div>
 
