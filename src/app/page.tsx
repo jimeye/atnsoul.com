@@ -111,7 +111,7 @@ export default function HomePage() {
                   fontFamily: 'Lucida Console, monospace',
                   fontSize: '0.8rem'
                 }}>
-                  unavailable
+                  unreleasable
                 </span>
               </div>
               
