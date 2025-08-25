@@ -81,8 +81,7 @@ export default function HomePage() {
             left: '0', 
             fontFamily: 'Lucida Console, monospace', 
             fontSize: '0.72rem',
-            textAlign: 'left',
-            marginLeft: '-10px'
+            textAlign: 'left'
           }}>
             <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-start' }}>
