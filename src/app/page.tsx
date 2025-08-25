@@ -12,10 +12,7 @@ const portraitImages = [
 export default function HomePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [showSpotifyWidget, setShowSpotifyWidget] = useState(false)
-  const [isSpotifyPlaying, setIsSpotifyPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
-  const spotifyRef = useRef<HTMLIFrameElement>(null)
 
   // Défilement automatique toutes les 2 secondes
   useEffect(() => {
@@ -34,26 +31,6 @@ export default function HomePage() {
         audioRef.current.play()
       }
       setIsPlaying(!isPlaying)
-    }
-  }
-
-  const toggleSpotifyWidget = () => {
-    setShowSpotifyWidget(!showSpotifyWidget)
-  }
-
-  const toggleSpotifyPlay = () => {
-    if (isSpotifyPlaying) {
-      // Arrêter Spotify
-      if (spotifyRef.current) {
-        spotifyRef.current.src = "about:blank"
-      }
-      setIsSpotifyPlaying(false)
-    } else {
-      // Démarrer Spotify
-      if (spotifyRef.current) {
-        spotifyRef.current.src = "https://open.spotify.com/embed/artist/1R9Vrkow58CeVtMm9nDaJb?utm_source=generator&autoplay=1"
-      }
-      setIsSpotifyPlaying(true)
     }
   }
   return (
@@ -149,8 +126,10 @@ export default function HomePage() {
                 }}>
                   my playlist
                 </span>
-                <button 
-                  onClick={toggleSpotifyPlay}
+                <a 
+                  href="https://open.spotify.com/artist/1R9Vrkow58CeVtMm9nDaJb" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   style={{
                     width: '40px',
                     height: '40px',
@@ -160,36 +139,17 @@ export default function HomePage() {
                     cursor: 'pointer',
                     backgroundColor: 'transparent',
                     border: 'none',
-                    padding: 0
+                    padding: 0,
+                    textDecoration: 'none'
                   }}
                 >
                   <span style={{
                     color: '#ed002a',
                     fontSize: '24px'
                   }}>
-                    {isSpotifyPlaying ? '⏸' : '🎵'}
+                    🎵
                   </span>
-                </button>
-              </div>
-
-              {/* Widget Spotify (masqué mais actif) */}
-              <div style={{ 
-                position: 'absolute',
-                left: '-9999px',
-                width: '1px',
-                height: '1px',
-                overflow: 'hidden'
-              }}>
-                <iframe 
-                  ref={spotifyRef}
-                  src="about:blank"
-                  width="1" 
-                  height="1" 
-                  frameBorder="0" 
-                  allowFullScreen={true}
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                  loading="lazy"
-                />
+                </a>
               </div>
             </div>
           </div>
