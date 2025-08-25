@@ -135,38 +135,6 @@ export default function HomePage() {
                 </button>
               </div>
               
-              {/* Icône Spotify */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ 
-                  color: '#ed002a', 
-                  fontFamily: 'Lucida Console, monospace',
-                  fontSize: '0.81rem',
-                  marginRight: '-5px'
-                }}>
-                  apple music
-                </span>
-              </div>
-
-              {/* Widget Apple Music intégré dans la colonne */}
-              {isSpotifyPlaying && (
-                <div style={{ 
-                  marginTop: '20px',
-                  width: '100%',
-                  maxWidth: '280px'
-                }}>
-                  <iframe 
-                    ref={spotifyRef}
-                    src="about:blank"
-                    width="100%" 
-                    height="80" 
-                    frameBorder="0" 
-                    allowFullScreen={true}
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                    loading="lazy"
-                    style={{ borderRadius: '12px' }}
-                  />
-                </div>
-              )}
             </div>
           </div>
 
