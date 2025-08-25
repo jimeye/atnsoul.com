@@ -118,7 +118,7 @@ export default function HomePage() {
                   fontSize: '0.81rem',
                   marginRight: '-5px'
                 }}>
-                  apple music
+                  unreleased
                 </span>
                 <button 
                   onClick={togglePlay}
