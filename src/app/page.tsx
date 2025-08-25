@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 
 const portraitImages = [
   { id: 1, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-1.jpg", alt: "Portrait 1" },
@@ -151,12 +150,14 @@ export default function HomePage() {
             backgroundColor: 'white',
             overflow: 'hidden'
           }}>
-            <Image
+            <img
               src={portraitImages[currentImageIndex].src}
               alt={portraitImages[currentImageIndex].alt}
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
+              style={{ 
+                width: '100%', 
+                height: '100%', 
+                objectFit: 'cover' 
+              }}
             />
           </div>
 
