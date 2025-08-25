@@ -72,10 +72,7 @@ export default function HomePage() {
           {/* Lecteur de musique */}
           <div style={{ marginTop: '26px' }}>
             <div style={{ 
-              padding: '10px', 
-              border: '1px solid #ccc', 
-              borderRadius: '5px',
-              backgroundColor: '#f9f9f9'
+              padding: '10px'
             }}>
               <div style={{ fontSize: '12px', marginBottom: '10px', color: '#333' }}>
                 Lecteur de musique
@@ -83,23 +80,23 @@ export default function HomePage() {
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 <button style={{ 
                   padding: '5px 10px', 
-                  backgroundColor: '#ed002a', 
-                  color: 'white', 
+                  backgroundColor: 'transparent', 
+                  color: '#333', 
                   border: 'none', 
-                  borderRadius: '3px',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  fontSize: '16px'
                 }}>
-                  ▶ Play
+                  ▶
                 </button>
                 <button style={{ 
                   padding: '5px 10px', 
-                  backgroundColor: '#666', 
-                  color: 'white', 
+                  backgroundColor: 'transparent', 
+                  color: '#333', 
                   border: 'none', 
-                  borderRadius: '3px',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  fontSize: '16px'
                 }}>
-                  ⏸ Pause
+                  ⏸
                 </button>
               </div>
             </div>
