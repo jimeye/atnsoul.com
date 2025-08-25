@@ -109,7 +109,8 @@ export default function HomePage() {
                 <span style={{ 
                   color: '#ed002a', 
                   fontFamily: 'Lucida Console, monospace',
-                  fontSize: '0.8rem'
+                  fontSize: '0.8rem',
+                  marginLeft: '-5px'
                 }}>
                   unreleasable
                 </span>
