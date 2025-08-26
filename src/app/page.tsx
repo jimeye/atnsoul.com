@@ -2,6 +2,25 @@
 
 import { useState, useEffect, useRef } from "react"
 import { MusicPlayer } from "@/components/music/music-player"
+import { MobileHeader } from "@/components/layout/mobile-header"
+
+// Fonction pour détecter si on est sur mobile/tablette
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 1024)
+    }
+    
+    checkIsMobile()
+    window.addEventListener('resize', checkIsMobile)
+    
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [])
+
+  return isMobile
+}
 
 const portraitImages = [
   { id: 1, src: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-1.jpg", alt: "Portrait 1" },
@@ -16,6 +35,7 @@ export default function HomePage() {
   const audioRef = useRef<HTMLAudioElement>(null)
   const spotifyRef = useRef<HTMLIFrameElement>(null)
   const spotifyWindowRef = useRef<Window | null>(null)
+  const isMobile = useIsMobile()
 
   // Défilement automatique toutes les 2 secondes
   useEffect(() => {
@@ -53,117 +73,125 @@ export default function HomePage() {
     }
   }
   return (
-    <div style={{ 
-      padding: '0', 
-      margin: '0', 
-      minHeight: '100vh'
-    }}>
-      <div className="responsive-grid" style={{ 
+          <div style={{ 
+        padding: '0', 
+        margin: '0', 
+        minHeight: '100vh',
+        overflow: 'hidden',
+        width: '100vw'
+      }}>
+      
+        {/* Header Mobile - visible seulement sur mobile/tablette */}
+        {isMobile && <MobileHeader />}
+        
+        <div className="responsive-grid" style={{ 
         display: 'grid',
-        gridTemplateColumns: '1fr 2.1fr 1.9fr',
-        height: '95vh',
-        gap: '0',
-        minHeight: '95vh'
+        gridTemplateColumns: isMobile ? '4fr 6fr' : '18% 41% 41%',
+        height: isMobile ? 'calc(100vh - 10px)' : '95vh',
+        gap: isMobile ? '6px' : '0',
+        minHeight: isMobile ? 'calc(100vh - 10px)' : '95vh',
+        padding: '0'
       }}>
         
-        {/* Colonne 1 - Rouge */}
+        {/* Colonne 1 - Rouge - visible seulement sur desktop */}
         <div style={{ 
-          padding: '0', 
-          height: '90vh',
-          borderRadius: '0',
-          position: 'relative'
-        }} className="mobile-auto-height">
-          {/* Logo ATN SOUL */}
-          <a href="/" style={{ textDecoration: 'none' }}>
-            <img 
-              src="/atn-soul-website-typo-producer-paris-ultra-soul-ultrasoul.png" 
-              alt="ATN SOUL" 
-              style={{ width: '88%', height: 'auto', marginBottom: '46px', marginLeft: '0%' }}
-            />
-          </a>
-          
-          {/* Navigation */}
-          <div style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '10px' }}>
-            <div style={{ color: 'black', marginBottom: '17px' }}>About</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <a href="/la-serre-aux-papillons" style={{ color: 'black', textDecoration: 'none' }}>
-                La Serre aux Papillons (Film)
-              </a>
-              <a href="/nyc-sessions" style={{ color: 'black', textDecoration: 'none' }}>
-                NYC Sessions (Performance)
-              </a>
-              <a href="/amarela" style={{ color: 'black', textDecoration: 'none' }}>
-                Amarela (LP)
-              </a>
-              <a href="/co-productions" style={{ color: 'black', textDecoration: 'none' }}>
-                Co-Productions
-              </a>
-            </div>
-          </div>
-
-          {/* Lecteur Audio + Spotify */}
-          <div style={{ marginTop: '26px' }}>
-            <audio ref={audioRef} src="/audio/atnsoul-track.mp3" />
-            <div style={{ 
-              padding: '10px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '10px'
-            }}>
-              {/* Bouton Play/Pause Audio */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ 
-                  color: '#ed002a', 
-                  fontFamily: 'Lucida Console, monospace',
-                  fontSize: '0.81rem',
-                  marginRight: '-5px'
-                }}>
-                  unreleased
-                </span>
-                <button 
-                  onClick={togglePlay}
-                  style={{ 
-                    padding: '5px 10px', 
-                    backgroundColor: 'transparent', 
-                    color: '#ed002a', 
-                    border: 'none', 
-                    cursor: 'pointer',
-                    fontSize: '16px'
-                  }}
-                >
-                  {isPlaying ? '⏸' : '▶'}
-                </button>
+            padding: '0', 
+            height: '90vh',
+            borderRadius: '0',
+            position: 'relative',
+            display: isMobile ? 'none' : 'block'
+          }} className="mobile-auto-height">
+            {/* Logo ATN SOUL */}
+            <a href="/" style={{ textDecoration: 'none' }}>
+              <img 
+                src="/atn-soul-website-typo-producer-paris-ultra-soul-ultrasoul.png" 
+                alt="ATN SOUL" 
+                style={{ width: '92.4%', height: 'auto', marginBottom: '46px', marginLeft: '0%' }}
+              />
+            </a>
+            
+            {/* Navigation */}
+            <div className="desktop-navigation" style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '10px' }}>
+              <div style={{ color: 'black', marginBottom: '17px' }}>About</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                <a href="/la-serre-aux-papillons" style={{ color: 'black', textDecoration: 'none' }}>
+                  La Serre aux Papillons (Film)
+                </a>
+                <a href="/nyc-sessions" style={{ color: 'black', textDecoration: 'none' }}>
+                  NYC Sessions (Performance)
+                </a>
+                <a href="/amarela" style={{ color: 'black', textDecoration: 'none' }}>
+                  Amarela (LP)
+                </a>
+                <a href="/co-productions" style={{ color: 'black', textDecoration: 'none' }}>
+                  Co-Productions
+                </a>
               </div>
-              
             </div>
-          </div>
+            
+            {/* Lecteur Audio + Spotify */}
+            <div style={{ marginTop: '26px' }}>
+              <audio ref={audioRef} src="/audio/atnsoul-track.mp3" />
+              <div style={{ 
+                padding: '10px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '10px'
+              }}>
+                {/* Bouton Play/Pause Audio */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ 
+                    color: '#ed002a', 
+                    fontFamily: 'Lucida Console, monospace',
+                    fontSize: '0.85rem',
+                    marginRight: '-5px'
+                  }}>
+                    unreleased
+                  </span>
+                  <button 
+                    onClick={togglePlay}
+                    style={{ 
+                      padding: '5px 10px', 
+                      backgroundColor: 'transparent', 
+                      color: '#ed002a', 
+                      border: 'none', 
+                      cursor: 'pointer',
+                      fontSize: '16px'
+                    }}
+                  >
+                    {isPlaying ? '⏸' : '▶'}
+                  </button>
+                </div>
+                
+              </div>
+            </div>
 
-          {/* Liens streaming en bas à gauche */}
-          <div style={{ 
-            position: 'absolute', 
-            bottom: '20px', 
-            left: '0', 
-            fontFamily: 'Lucida Console, monospace', 
-            fontSize: '0.72rem',
-            textAlign: 'left',
-            marginLeft: '10px'
-          }}>
-            <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
-            <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-start' }}>
-              <a href="https://music.apple.com/fr/artist/atn-soul/1455380348" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
-                Apple Music
-              </a>
-              <span style={{ color: '#0066cc' }}>|</span>
-              <a href="https://open.spotify.com" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
-                Spotify
-              </a>
+            {/* Liens streaming en bas à gauche */}
+            <div style={{ 
+              position: 'absolute', 
+              bottom: '20px', 
+              left: '0', 
+              fontFamily: 'Lucida Console, monospace', 
+              fontSize: '0.72rem',
+              textAlign: 'left',
+              marginLeft: '10px'
+            }}>
+              <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
+              <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-start' }}>
+                <a href="https://music.apple.com/fr/artist/atn-soul/1455380348" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+                  Apple Music
+                </a>
+                <span style={{ color: '#0066cc' }}>|</span>
+                <a href="https://open.spotify.com" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+                  Spotify
+                </a>
+              </div>
             </div>
           </div>
-        </div>
 
         {/* Colonne 2 - Texte About */}
         <div style={{ 
-          padding: '30px', 
+          padding: isMobile ? '50px 0 50px 0' : '10px', 
           height: '90vh',
           borderRadius: '0',
           overflow: 'auto'
@@ -201,12 +229,12 @@ export default function HomePage() {
 
         {/* Colonne 3 - Slider d'images */}
         <div style={{ 
-          padding: '20px', 
-          height: '87vh',
-          borderRadius: '0',
-          position: 'relative',
-          overflow: 'hidden'
-        }} className="mobile-auto-height">
+            padding: isMobile ? '50px -13px 20px 20px' : '20px', 
+            height: '87vh',
+            borderRadius: '0',
+            position: 'relative',
+            overflow: 'hidden'
+          }} className="mobile-auto-height">
           {/* Image actuelle avec marge blanche */}
           <div style={{ 
             position: 'absolute', 
@@ -291,9 +319,11 @@ export default function HomePage() {
 
       </div>
       
+
+
       {/* Footer */}
-      <div style={{ 
-        height: '10px', 
+      <div style={{
+        height: '10px',
         backgroundColor: 'transparent',
         display: 'flex',
         alignItems: 'center',
@@ -303,12 +333,12 @@ export default function HomePage() {
         color: '#ed002a'
       }}>
         Website design by  {" "}
-        <a 
-          href="https://wa.me/33608251223" 
-          target="_blank" 
+        <a
+          href="https://wa.me/33608251223"
+          target="_blank"
           rel="noopener noreferrer"
-          style={{ 
-            color: '#ed002a', 
+          style={{
+            color: '#ed002a',
             textDecoration: 'none',
             fontWeight: 'bold',
             marginLeft: '5px'
@@ -317,6 +347,8 @@ export default function HomePage() {
           JOSEPH-STUDIO.COM
         </a>
       </div>
+
+
     </div>
   )
 }

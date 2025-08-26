@@ -72,6 +72,17 @@
     color: hsl(var(--foreground));
     font-family: "Lucida Console", "Courier", "Courier New", monospace;
     font-feature-settings: "rlig" 1, "calt" 1;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100vw;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100vw;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -108,26 +119,72 @@
   /* Responsive layout */
   @media (max-width: 1024px) {
     .responsive-grid {
-      display: grid !important;
-      grid-template-columns: 1fr !important;
-      grid-template-rows: 1fr 2fr 2fr !important;
-      height: auto !important;
-      min-height: 100vh !important;
-      width: 100% !important;
+      display: grid;
+      grid-template-columns: 1fr 4fr 5fr;
+      height: 95vh;
+      min-height: 95vh;
+      width: 100%;
+      gap: 0;
     }
     
     .responsive-grid > div {
-      height: auto !important;
-      min-height: auto !important;
-      max-height: none !important;
-      overflow: visible !important;
+      height: 90vh;
+      min-height: 90vh;
+      max-height: 90vh;
+      overflow: auto;
     }
     
     .mobile-auto-height {
-      height: auto !important;
-      min-height: auto !important;
-      max-height: none !important;
+      height: 90vh;
+      min-height: 90vh;
+      max-height: 90vh;
     }
+
+    /* Cacher la navigation desktop sur mobile */
+    .desktop-navigation {
+      display: none;
+    }
+
+    /* Colonne 1 visible sur mobile/tablette */
+    .desktop-only {
+      display: block;
+    }
+
+    /* Afficher le header mobile */
+    .mobile-header {
+      display: block;
+    }
+    
+    .mobile-header > div {
+      display: flex;
+    }
+  }
+
+  /* Cacher le header mobile sur desktop */
+  @media (min-width: 1025px) {
+    .mobile-header {
+      display: none !important;
+    }
+  }
+
+  /* Wide screen styles */
+  @media (min-width: 1920px) {
+    .responsive-grid {
+      max-width: 1920px !important;
+      margin: 0 auto !important;
+    }
+  }
+
+  @media (min-width: 2560px) {
+    .responsive-grid {
+      max-width: 2560px !important;
+      margin: 0 auto !important;
+    }
+  }
+
+  /* Par défaut, cacher le header mobile */
+  .mobile-header {
+    display: none;
   }
 }
 

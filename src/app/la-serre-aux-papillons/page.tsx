@@ -1,9 +1,29 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { MobileHeader } from "@/components/layout/mobile-header"
+
+// Fonction pour détecter si on est sur mobile/tablette
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 1024)
+    }
+    
+    checkIsMobile()
+    window.addEventListener('resize', checkIsMobile)
+    
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [])
+
+  return isMobile
+}
 
 export default function LaSerrePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const isMobile = useIsMobile()
 
   // Défilement automatique toutes les 2 secondes
   useEffect(() => {
@@ -26,32 +46,39 @@ export default function LaSerrePage() {
       margin: '0',
       minHeight: '100vh'
     }}>
+    
+      {/* Header Mobile - visible seulement sur mobile/tablette */}
+      {isMobile && <MobileHeader />}
+      
       <div className="responsive-grid" style={{
         display: 'grid',
-        gridTemplateColumns: '1fr 2.1fr 1.9fr',
-        height: '95vh',
-        gap: '0',
-        minHeight: '95vh'
+        gridTemplateColumns: isMobile ? '1fr' : '18% 41% 41%',
+        gridTemplateRows: isMobile ? 'auto auto' : 'auto',
+        height: isMobile ? 'auto' : '95vh',
+        gap: isMobile ? '6px' : '0',
+        minHeight: isMobile ? 'auto' : '95vh',
+        padding: '0'
       }}>
 
-        {/* Colonne 1 - Navigation */}
+        {/* Colonne 1 - Navigation - visible seulement sur desktop */}
         <div style={{
-          padding: '0',
+          padding: '0', 
           height: '90vh',
           borderRadius: '0',
-          position: 'relative'
+          position: 'relative',
+          display: isMobile ? 'none' : 'block'
         }} className="mobile-auto-height">
           {/* Logo ATN SOUL */}
           <a href="/" style={{ textDecoration: 'none' }}>
             <img
               src="/atn-soul-website-typo-producer-paris-ultra-soul-ultrasoul.png"
               alt="ATN SOUL"
-              style={{ width: '88%', height: 'auto', marginBottom: '46px', marginLeft: '0%' }}
+              style={{ width: '92.4%', height: 'auto', marginBottom: '46px', marginLeft: '0%' }}
             />
           </a>
 
           {/* Navigation */}
-          <div style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '10px' }}>
+          <div className="desktop-navigation" style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '10px' }}>
             <a href="/" style={{ color: 'black', textDecoration: 'none', marginBottom: '17px', display: 'block' }}>About</a>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <a href="/la-serre-aux-papillons" style={{ color: '#ed002a', textDecoration: 'none' }}>
@@ -68,63 +95,87 @@ export default function LaSerrePage() {
               </a>
             </div>
           </div>
-        </div>
 
-        {/* Colonne 2 - Contenu La Serre aux Papillons */}
-        <div style={{
-          padding: '30px',
-          height: '90vh',
-          borderRadius: '0',
-          overflow: 'auto'
-        }} className="mobile-auto-height">
-          <h1 style={{ color: 'black', fontSize: '1.8rem', marginBottom: '0px', fontWeight: 'bold', fontFamily: 'Helvetica Neue LT Std, sans-serif' }}>
-            la serre aux papillons - eva wang
-          </h1>
-
-          <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.85rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-              <p style={{ fontSize: '0.97rem', margin: 0 }}>
-                role : composer & sound designer
-              </p>
-              <p style={{ fontWeight: '300', fontSize: '0.97rem', margin: 0, marginRight: '100px' }}>
-                2024
-              </p>
+          {/* Liens streaming en bas à gauche */}
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '20px', 
+            left: '0', 
+            fontFamily: 'Lucida Console, monospace', 
+            fontSize: '0.72rem',
+            textAlign: 'left',
+            marginLeft: '10px'
+          }}>
+            <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
+            <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-start' }}>
+              <a href="https://music.apple.com/fr/artist/atn-soul/1455380348" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+                Apple Music
+              </a>
+              <span style={{ color: '#0066cc' }}>|</span>
+              <a href="https://open.spotify.com" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+                Spotify
+              </a>
             </div>
-            
-            <p style={{ marginBottom: '15px' }}>
-              The Butterfly House by Paris-based filmmaker Eva Wang is a film about metamorphosis, and the transition from adolescence to adulthood.
-            </p>
-            
-            <p style={{ marginBottom: '15px' }}>
-              It invites viewers to immerse themselves in its imagery and poetry, inviting them to explore the unspoken depths of the human experience.
-            </p>
-            
-            <p style={{ marginBottom: '15px' }}>
-              Wang says : "Ethan skillfully paced La Serre aux Papillons by creating various soundscapes. Drawing from references, words, and colors, he masterfully crafted captivating melodies."
-            </p>
-            
-            <p style={{ marginBottom: '15px', fontWeight: 'bold' }}>
-              Tracklist :
-            </p>
-            
-            <p style={{ marginBottom: '15px' }}>
-              0:12 - 0:38 La Valse de la Mort (Prélude)
-            </p>
-            
-            <p style={{ marginBottom: '15px' }}>
-              1:09 - 1:55 Eveil
-            </p>
-            
-            <p style={{ marginBottom: '15px' }}>
-              2:50 - 4:08 La Valse de la Mort
-            </p>
           </div>
         </div>
 
+        {/* Colonne 2 - Contenu La Serre aux Papillons */}
+        {!isMobile && (
+          <div style={{
+            padding: '30px',
+            height: '90vh',
+            borderRadius: '0',
+            overflow: 'auto'
+          }} className="mobile-auto-height">
+            <h1 style={{ color: 'black', fontSize: '1.8rem', marginBottom: '0px', fontWeight: 'bold', fontFamily: 'Helvetica Neue LT Std, sans-serif' }}>
+              la serre aux papillons - eva wang
+            </h1>
+
+            <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.85rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+                <p style={{ fontSize: '0.97rem', margin: 0 }}>
+                  role : composer & sound designer
+                </p>
+                <p style={{ fontWeight: '300', fontSize: '0.97rem', margin: 0, marginRight: '100px' }}>
+                  2024
+                </p>
+              </div>
+              
+              <p style={{ marginBottom: '15px' }}>
+                The Butterfly House by Paris-based filmmaker Eva Wang is a film about metamorphosis, and the transition from adolescence to adulthood.
+              </p>
+              
+              <p style={{ marginBottom: '15px' }}>
+                It invites viewers to immerse themselves in its imagery and poetry, inviting them to explore the unspoken depths of the human experience.
+              </p>
+              
+              <p style={{ marginBottom: '15px' }}>
+                Wang says : "Ethan skillfully paced La Serre aux Papillons by creating various soundscapes. Drawing from references, words, and colors, he masterfully crafted captivating melodies."
+              </p>
+              
+              <p style={{ marginBottom: '15px', fontWeight: 'bold' }}>
+                Tracklist :
+              </p>
+              
+              <p style={{ marginBottom: '15px' }}>
+                0:12 - 0:38 La Valse de la Mort (Prélude)
+              </p>
+              
+              <p style={{ marginBottom: '15px' }}>
+                1:09 - 1:55 Eveil
+              </p>
+              
+              <p style={{ marginBottom: '15px' }}>
+                2:50 - 4:08 La Valse de la Mort
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Colonne 3 - Image La Serre aux Papillons */}
         <div style={{
-          padding: '20px',
-          height: '87vh',
+          padding: isMobile ? '50px 0px 20px 0px' : '20px',
+          height: isMobile ? 'auto' : '87vh',
           borderRadius: '0',
           position: 'relative',
           overflow: 'hidden'
@@ -139,14 +190,20 @@ export default function LaSerrePage() {
               borderRadius: '0'
             }}
           />
-          
-          {/* Lien Girls In Film sous la photo */}
+        </div>
+
+        {/* Lien Girls In Film sous la photo - Mobile */}
+        {isMobile && (
           <div style={{
-            position: 'absolute',
-            bottom: '10px',
-            left: '20px',
+            textAlign: 'center',
+            marginTop: '-16px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             fontFamily: 'Lucida Console, monospace',
-            fontSize: '0.7rem'
+            fontSize: '0.9rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
           }}>
             <a 
               href="https://www.girlsinfilm.net/videos/the-butterfly-house" 
@@ -157,13 +214,89 @@ export default function LaSerrePage() {
                 textDecoration: 'none'
               }}
             >
-              Screenshot 2024-06-06 at 18.38.01.png<br />
               distributed through Girls In Film
             </a>
           </div>
-        </div>
+        )}
+
+        {/* Colonne 2 - Contenu La Serre aux Papillons - Mobile */}
+        {isMobile && (
+          <div style={{
+            padding: '-20px 0 50px 0',
+            height: 'auto',
+            borderRadius: '0',
+            overflow: 'auto'
+          }} className="mobile-auto-height">
+            <h1 style={{ color: 'black', fontSize: '1.8rem', marginBottom: '0px', fontWeight: 'bold', fontFamily: 'Helvetica Neue LT Std, sans-serif' }}>
+              la serre aux papillons - eva wang
+            </h1>
+
+            <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.85rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+                <p style={{ fontSize: '0.97rem', margin: 0 }}>
+                  role : composer & sound designer
+                </p>
+                <p style={{ fontWeight: '300', fontSize: '0.97rem', margin: 0, marginRight: '100px' }}>
+                  2024
+                </p>
+              </div>
+              
+              <p style={{ marginBottom: '15px' }}>
+                The Butterfly House by Paris-based filmmaker Eva Wang is a film about metamorphosis, and the transition from adolescence to adulthood.
+              </p>
+              
+              <p style={{ marginBottom: '15px' }}>
+                It invites viewers to immerse themselves in its imagery and poetry, inviting them to explore the unspoken depths of the human experience.
+              </p>
+              
+              <p style={{ marginBottom: '15px' }}>
+                Wang says : "Ethan skillfully paced La Serre aux Papillons by creating various soundscapes. Drawing from references, words, and colors, he masterfully crafted captivating melodies."
+              </p>
+              
+              <p style={{ marginBottom: '15px', fontWeight: 'bold' }}>
+                Tracklist :
+              </p>
+              
+              <p style={{ marginBottom: '15px' }}>
+                0:12 - 0:38 La Valse de la Mort (Prélude)
+              </p>
+              
+              <p style={{ marginBottom: '15px' }}>
+                1:09 - 1:55 Eveil
+              </p>
+              
+              <p style={{ marginBottom: '15px' }}>
+                2:50 - 4:08 La Valse de la Mort
+              </p>
+            </div>
+          </div>
+        )}
 
       </div>
+
+      {/* Lien Girls In Film sous le carrousel */}
+      {!isMobile && (
+        <div style={{
+          textAlign: 'right',
+          marginTop: '-60px',
+          marginBottom: '20px',
+          paddingRight: '110px',
+          fontFamily: 'Lucida Console, monospace',
+          fontSize: '1.02rem'
+        }}>
+          <a 
+            href="https://www.girlsinfilm.net/videos/the-butterfly-house" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              color: '#0066cc',
+              textDecoration: 'none'
+            }}
+          >
+            distributed through Girls In Film
+          </a>
+        </div>
+      )}
 
       {/* Footer */}
       <div style={{
