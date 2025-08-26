@@ -177,7 +177,7 @@ export default function AmarelaPage() {
           </div>
         )}
 
-        {/* Colonne 3 - Image et Pochettes Vinyl - Desktop */}
+        {/* Colonne 3 - Image seulement - Desktop */}
         {!isMobile && (
           <div style={{
             padding: '20px',
@@ -197,13 +197,19 @@ export default function AmarelaPage() {
                 }}
               />
             </div>
+          </div>
+        )}
 
-            {/* Pochettes Vinyl */}
+        {/* Section Pochettes Vinyl - Desktop */}
+        {!isMobile && (
+          <div style={{
+            gridColumn: '2 / 4',
+            padding: '20px'
+          }}>
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '15px',
-              marginTop: '20px'
+              gap: '20px'
             }}>
               {vinylCovers.map((item) => (
                 <a
@@ -246,12 +252,12 @@ export default function AmarelaPage() {
                     />
                   </div>
                   <div style={{
-                    marginTop: '8px',
+                    marginTop: '10px',
                     textAlign: 'center',
                     fontFamily: 'Lucida Console, monospace',
-                    fontSize: '0.7rem'
+                    fontSize: '0.8rem'
                   }}>
-                    <p style={{ margin: '0 0 3px 0', fontWeight: 'bold' }}>{item.title}</p>
+                    <p style={{ margin: '0 0 5px 0', fontWeight: 'bold' }}>{item.title}</p>
                     <p style={{ margin: '0', color: '#666' }}>{item.subtitle}</p>
                   </div>
                 </a>
@@ -337,8 +343,8 @@ export default function AmarelaPage() {
             {/* Pochettes Vinyl */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '15px',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: '20px',
               marginTop: '20px'
             }}>
               {vinylCovers.map((item) => (
@@ -382,12 +388,12 @@ export default function AmarelaPage() {
                     />
                   </div>
                   <div style={{
-                    marginTop: '8px',
+                    marginTop: '12px',
                     textAlign: 'center',
                     fontFamily: 'Lucida Console, monospace',
-                    fontSize: '0.65rem'
+                    fontSize: '0.75rem'
                   }}>
-                    <p style={{ margin: '0 0 3px 0', fontWeight: 'bold' }}>{item.title}</p>
+                    <p style={{ margin: '0 0 5px 0', fontWeight: 'bold' }}>{item.title}</p>
                     <p style={{ margin: '0', color: '#666' }}>{item.subtitle}</p>
                   </div>
                 </a>
@@ -407,7 +413,8 @@ export default function AmarelaPage() {
         paddingLeft: '10px',
         fontFamily: 'Lucida Console, monospace',
         fontSize: '9.2px',
-        color: '#ed002a'
+        color: '#ed002a',
+        marginTop: '40px'
       }}>
         Website design by  {" "}
         <a
