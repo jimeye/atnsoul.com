@@ -24,6 +24,7 @@ function useIsMobile() {
 export default function LaSerrePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const isMobile = useIsMobile()
+  const [isHovered, setIsHovered] = useState(false)
 
   // Défilement automatique toutes les 2 secondes
   useEffect(() => {
@@ -177,13 +178,18 @@ export default function LaSerrePage() {
         )}
 
         {/* Colonne 3 - Image La Serre aux Papillons */}
-        <div style={{
-          padding: isMobile ? '50px 0px 20px 0px' : '20px',
-          height: isMobile ? 'auto' : '87vh',
-          borderRadius: '0',
-          position: 'relative',
-          overflow: 'hidden'
-        }} className="mobile-auto-height">
+        <div 
+          style={{
+            padding: isMobile ? '50px 0px 20px 0px' : '20px',
+            height: isMobile ? 'auto' : '87vh',
+            borderRadius: '0',
+            position: 'relative',
+            overflow: 'hidden'
+          }} 
+          className="mobile-auto-height"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <img
             src="/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-la-serre-aux-papillons.webp"
             alt="La Serre aux Papillons"
@@ -194,34 +200,30 @@ export default function LaSerrePage() {
               borderRadius: '0'
             }}
           />
-        </div>
-
-        {/* Lien Girls In Film sous la photo - Mobile */}
-        {isMobile && (
-          <div style={{
-            textAlign: 'center',
-            marginTop: '-16px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            fontFamily: 'Lucida Console, monospace',
-            fontSize: '0.9rem',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
-            <a 
-              href="https://www.girlsinfilm.net/videos/the-butterfly-house" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{
-                color: '#0066cc',
-                textDecoration: 'none'
-              }}
+          
+          {/* Bulle au survol */}
+          {isHovered && (
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              color: 'white',
+              padding: '15px 20px',
+              borderRadius: '8px',
+              fontFamily: 'Lucida Console, monospace',
+              fontSize: '0.9rem',
+              zIndex: 10,
+              cursor: 'pointer',
+              transition: 'opacity 0.3s ease'
+            }}
+            onClick={() => window.open('https://www.girlsinfilm.net/videos/the-butterfly-house', '_blank')}
             >
               distributed through Girls In Film
-            </a>
-          </div>
-        )}
+            </div>
+          )}
+        </div>
 
         {/* Colonne 2 - Contenu La Serre aux Papillons - Mobile */}
         {isMobile && (
@@ -282,29 +284,54 @@ export default function LaSerrePage() {
 
       </div>
 
-      {/* Lien Girls In Film sous le carrousel */}
-      {!isMobile && (
+      {/* Vidéo Vimeo - Mobile */}
+      {isMobile && (
         <div style={{
-          textAlign: 'right',
-          marginTop: '-60px',
+          marginTop: '20px',
           marginBottom: '20px',
-          paddingRight: '110px',
-          fontFamily: 'Lucida Console, monospace',
-          fontSize: '1.02rem'
+          width: '100vw',
+          marginLeft: 'calc(-50vw + 50%)',
+          marginRight: 'calc(-50vw + 50%)'
         }}>
-          <a 
-            href="https://www.girlsinfilm.net/videos/the-butterfly-house" 
-            target="_blank" 
-            rel="noopener noreferrer"
+          <iframe
+            src="https://player.vimeo.com/video/937228313?h=1234567890abcdef"
+            width="100%"
+            height="300"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
             style={{
-              color: '#0066cc',
-              textDecoration: 'none'
+              width: '100%',
+              borderRadius: '0'
             }}
-          >
-            distributed through Girls In Film
-          </a>
+          ></iframe>
         </div>
       )}
+
+      {/* Vidéo Vimeo - Desktop */}
+      {!isMobile && (
+        <div style={{
+          marginTop: '20px',
+          marginBottom: '20px',
+          padding: '0 20px',
+          textAlign: 'left'
+        }}>
+          <iframe
+            src="https://player.vimeo.com/video/937228313?h=1234567890abcdef"
+            width="122%"
+            height="488"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            style={{
+              width: '122%',
+              borderRadius: '0'
+            }}
+          ></iframe>
+        </div>
+      )}
+
+
 
       {/* Footer */}
       <div style={{
