@@ -204,7 +204,8 @@ export default function AmarelaPage() {
         {!isMobile && (
           <div style={{
             gridColumn: '2 / 4',
-            padding: '20px'
+            padding: '20px',
+            marginTop: '-50px'
           }}>
             <div style={{
               display: 'grid',
