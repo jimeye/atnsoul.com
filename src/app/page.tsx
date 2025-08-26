@@ -224,6 +224,10 @@ export default function HomePage() {
             <p style={{ marginBottom: '15px' }}>
               Currently, Ethan is dedicated to making a transmedia music - documentary film while preparing for his first solo album and producing for other artists.
             </p>
+            
+            <p style={{ marginBottom: '15px', color: 'black', backgroundColor: '#ffff00' }}>
+              work for others
+            </p>
           </div>
         </div>
 

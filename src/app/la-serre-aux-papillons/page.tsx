@@ -133,7 +133,7 @@ export default function LaSerrePage() {
 
             <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.85rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                <p style={{ fontSize: '0.97rem', margin: 0 }}>
+                <p style={{ fontSize: '0.97rem', margin: 0, color: '#00ff00' }}>
                   role : composer & sound designer
                 </p>
                 <p style={{ fontWeight: '300', fontSize: '0.97rem', margin: 0, marginRight: '100px' }}>
@@ -165,11 +165,15 @@ export default function LaSerrePage() {
                 1:09 - 1:55 Eveil
               </p>
               
-              <p style={{ marginBottom: '15px' }}>
-                2:50 - 4:08 La Valse de la Mort
-              </p>
-            </div>
+                          <p style={{ marginBottom: '15px' }}>
+              2:50 - 4:08 La Valse de la Mort
+            </p>
+            
+            <p style={{ marginBottom: '15px', color: '#ffff00' }}>
+              work for others
+            </p>
           </div>
+        </div>
         )}
 
         {/* Colonne 3 - Image La Serre aux Papillons */}
@@ -233,7 +237,7 @@ export default function LaSerrePage() {
 
             <div style={{ color: 'black', lineHeight: '1.6', fontFamily: 'Lucida Console, monospace', fontSize: '0.85rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                <p style={{ fontSize: '0.97rem', margin: 0 }}>
+                <p style={{ fontSize: '0.97rem', margin: 0, color: '#00ff00' }}>
                   role : composer & sound designer
                 </p>
                 <p style={{ fontWeight: '300', fontSize: '0.97rem', margin: 0, marginRight: '100px' }}>
@@ -265,11 +269,15 @@ export default function LaSerrePage() {
                 1:09 - 1:55 Eveil
               </p>
               
-              <p style={{ marginBottom: '15px' }}>
-                2:50 - 4:08 La Valse de la Mort
-              </p>
-            </div>
+                          <p style={{ marginBottom: '15px' }}>
+              2:50 - 4:08 La Valse de la Mort
+            </p>
+            
+            <p style={{ marginBottom: '15px', color: '#ffff00' }}>
+              work for others
+            </p>
           </div>
+        </div>
         )}
 
       </div>
