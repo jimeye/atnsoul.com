@@ -110,7 +110,9 @@ export default function NYCSessionsPage() {
                   color: '#ed002a', 
                   fontFamily: 'Lucida Console, monospace',
                   fontSize: '0.85rem',
-                  marginRight: '-5px'
+                  marginRight: '-5px',
+                  WebkitTextStroke: '0.5px black',
+                  textStroke: '0.5px black'
                 }}>
                   unreleased
                 </span>
@@ -123,7 +125,9 @@ export default function NYCSessionsPage() {
                     border: 'none', 
                     cursor: 'pointer',
                     fontSize: '16px',
-                    transition: 'color 0.3s ease'
+                    transition: 'color 0.3s ease',
+                    WebkitTextStroke: '0.5px black',
+                    textStroke: '0.5px black'
                   }}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'black'}
                   onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { MobileHeader } from "@/components/layout/mobile-header"
+import { useSwipeNavigation } from "@/lib/hooks/useSwipeNavigation"
 
 // Fonction pour détecter si on est sur mobile/tablette
 function useIsMobile() {
@@ -27,6 +28,7 @@ export default function CoProductionsPage() {
   // Hooks pour le lecteur audio
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
+  const { containerRef, isSwiping } = useSwipeNavigation()
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -78,11 +80,14 @@ export default function CoProductionsPage() {
   ]
 
   return (
-    <div style={{
-      padding: '0',
-      margin: '0',
-      minHeight: '100vh'
-    }}>
+    <div 
+      ref={containerRef}
+      style={{
+        padding: '0',
+        margin: '0',
+        minHeight: '100vh',
+        cursor: isSwiping ? 'grabbing' : 'grab'
+      }}>
     
       {/* Header Mobile - visible seulement sur mobile/tablette */}
       {isMobile && <MobileHeader />}
@@ -147,7 +152,9 @@ export default function CoProductionsPage() {
                     color: '#ed002a', 
                     fontFamily: 'Lucida Console, monospace',
                     fontSize: '0.85rem',
-                    marginRight: '-5px'
+                    marginRight: '-5px',
+                    WebkitTextStroke: '0.5px black',
+                    textStroke: '0.5px black'
                   }}>
                     unreleased
                   </span>
@@ -160,7 +167,9 @@ export default function CoProductionsPage() {
                       border: 'none', 
                       cursor: 'pointer',
                       fontSize: '16px',
-                      transition: 'color 0.3s ease'
+                      transition: 'color 0.3s ease',
+                      WebkitTextStroke: '0.5px black',
+                      textStroke: '0.5px black'
                     }}
                     onMouseEnter={(e) => e.currentTarget.style.color = 'black'}
                     onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}
