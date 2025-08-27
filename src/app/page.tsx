@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { MusicPlayer } from "@/components/music/music-player"
 import { MobileHeader } from "@/components/layout/mobile-header"
 
 // Fonction pour détecter si on est sur mobile/tablette
@@ -46,14 +45,20 @@ export default function HomePage() {
     return () => clearInterval(interval)
   }, [])
 
-  const togglePlay = () => {
+  const togglePlay = async () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause()
+        setIsPlaying(false)
       } else {
-        audioRef.current.play()
+        try {
+          await audioRef.current.play()
+          setIsPlaying(true)
+        } catch (error) {
+          console.log('Erreur lors de la lecture audio:', error)
+          setIsPlaying(false)
+        }
       }
-      setIsPlaying(!isPlaying)
     }
   }
 
