@@ -126,12 +126,13 @@ export default function CoProductionsPage() {
             fontFamily: 'Lucida Console, monospace',
             fontSize: '0.81rem'
           }}>
-            <div style={{ marginBottom: '15px', fontWeight: 'bold' }}>Stream now</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <a href="https://open.spotify.com/artist/your-spotify-id" target="_blank" rel="noopener noreferrer" style={{ color: 'black', textDecoration: 'none' }}>
+            <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <a href="https://open.spotify.com/artist/your-spotify-id" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
                 Spotify
               </a>
-              <a href="https://music.apple.com/artist/your-apple-id" target="_blank" rel="noopener noreferrer" style={{ color: 'black', textDecoration: 'none' }}>
+              <span style={{ color: '#0066cc' }}>|</span>
+              <a href="https://music.apple.com/artist/your-apple-id" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
                 Apple Music
               </a>
             </div>
