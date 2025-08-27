@@ -221,10 +221,6 @@ export default function LaSerrePage() {
                           <p style={{ marginBottom: '15px' }}>
               2:50 - 4:08 La Valse de la Mort
             </p>
-            
-            <p style={{ marginBottom: '15px', color: '#ffff00' }}>
-              work for others
-            </p>
           </div>
         </div>
         )}
@@ -325,10 +321,6 @@ export default function LaSerrePage() {
               
                           <p style={{ marginBottom: '15px' }}>
               2:50 - 4:08 La Valse de la Mort
-            </p>
-            
-            <p style={{ marginBottom: '15px', color: '#ffff00' }}>
-              work for others
             </p>
           </div>
         </div>
