@@ -333,7 +333,9 @@ export default function AmarelaPage() {
               fontFamily: 'Lucida Console, monospace',
               fontSize: '9.2px',
               color: '#ed002a',
-              marginTop: '20px'
+              marginTop: '20px',
+              gridColumn: '2 / 3',
+              width: '100%'
             }}>
               Powered by  {" "}
               <a
