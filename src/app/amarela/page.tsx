@@ -334,6 +334,7 @@ export default function AmarelaPage() {
               fontSize: '9.2px',
               color: '#ed002a',
               marginTop: '20px',
+              marginBottom: '5px',
               position: 'absolute',
               left: '0%',
               width: '18%',
