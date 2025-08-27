@@ -83,8 +83,11 @@ export function MobileHeader() {
             cursor: 'pointer',
             padding: '5px',
             color: '#ed002a',
-            marginLeft: '-10px'
+            marginLeft: '-10px',
+            transition: 'color 0.3s ease'
           }}
+          onMouseEnter={(e) => e.currentTarget.style.color = 'black'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}
         >
           {isMenuOpen ? '✕' : '☰'}
         </button>
