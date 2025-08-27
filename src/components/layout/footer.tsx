@@ -1,9 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 export function Footer() {
   const [isMobile, setIsMobile] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -15,6 +17,11 @@ export function Footer() {
     
     return () => window.removeEventListener('resize', checkIsMobile)
   }, [])
+
+  // Ne pas afficher le footer global sur la page Amarela
+  if (pathname === '/amarela') {
+    return null
+  }
 
   return (
     <div style={{
