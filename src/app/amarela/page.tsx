@@ -335,8 +335,8 @@ export default function AmarelaPage() {
               color: '#ed002a',
               marginTop: '20px',
               position: 'absolute',
-              left: '18%',
-              width: '41%',
+              left: '0%',
+              width: '18%',
               zIndex: 10
             }}>
               Powered by  {" "}
