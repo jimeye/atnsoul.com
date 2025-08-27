@@ -473,9 +473,11 @@ export default function AmarelaPage() {
         fontFamily: 'Lucida Console, monospace',
         fontSize: '9.2px',
         color: '#ed002a',
-        marginTop: isMobile ? '20px' : '-50px',
+        marginTop: isMobile ? '20px' : '10px',
         marginLeft: isMobile ? '0' : '18%',
-        width: isMobile ? '100%' : '41%'
+        width: isMobile ? '100%' : '41%',
+        position: 'relative',
+        zIndex: 10
       }}>
         Powered by  {" "}
         <a
