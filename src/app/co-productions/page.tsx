@@ -405,7 +405,7 @@ export default function CoProductionsPage() {
         fontSize: '9.2px',
         color: '#ed002a'
       }}>
-        Website design by  {" "}
+                    Powered by  {" "}
         <a
           href="https://wa.me/33608251223"
           target="_blank"

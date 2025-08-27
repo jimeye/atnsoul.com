@@ -475,7 +475,7 @@ export default function AmarelaPage() {
         color: '#ed002a',
         marginTop: '40px'
       }}>
-        Website design by  {" "}
+                    Powered by  {" "}
         <a
           href="https://wa.me/33608251223"
           target="_blank"
