@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react"
 import { MobileHeader } from "@/components/layout/mobile-header"
-import { useSwipeNavigation } from "@/lib/hooks/useSwipeNavigation"
 
 // Fonction pour détecter si on est sur mobile/tablette
 function useIsMobile() {
@@ -36,7 +35,6 @@ export default function HomePage() {
   const spotifyRef = useRef<HTMLIFrameElement>(null)
   const spotifyWindowRef = useRef<Window | null>(null)
   const isMobile = useIsMobile()
-  const { containerRef, isSwiping } = useSwipeNavigation()
 
   // Défilement automatique toutes les 2 secondes
   useEffect(() => {
@@ -80,15 +78,12 @@ export default function HomePage() {
     }
   }
   return (
-          <div 
-            ref={containerRef}
-            style={{ 
+          <div style={{ 
         padding: '0', 
         margin: '0', 
         minHeight: '100vh',
         overflow: 'hidden',
-        width: '100vw',
-        cursor: isSwiping ? 'grabbing' : 'grab'
+        width: '100vw'
       }}>
       
         {/* Header Mobile - visible seulement sur mobile/tablette */}
@@ -97,16 +92,16 @@ export default function HomePage() {
         <div className="responsive-grid" style={{ 
         display: 'grid',
         gridTemplateColumns: isMobile ? '4fr 6fr' : '18% 41% 41%',
-        height: isMobile ? 'calc(100vh - 10px)' : '90vh',
+        height: isMobile ? 'calc(100vh - 10px)' : '95vh',
         gap: isMobile ? '6px' : '0',
-        minHeight: isMobile ? 'calc(100vh - 10px)' : '90vh',
+        minHeight: isMobile ? 'calc(100vh - 10px)' : '95vh',
         padding: '0'
       }}>
         
         {/* Colonne 1 - Rouge - visible seulement sur desktop */}
         <div style={{ 
             padding: '0', 
-            height: '85vh',
+            height: '90vh',
             borderRadius: '0',
             position: 'relative',
             display: isMobile ? 'none' : 'block'
@@ -209,7 +204,7 @@ export default function HomePage() {
         {/* Colonne 2 - Texte About */}
         <div style={{ 
           padding: isMobile ? '50px 0 50px 0' : '10px', 
-          height: '85vh',
+          height: '90vh',
           borderRadius: '0',
           overflow: 'auto'
         }} className="mobile-auto-height">
@@ -247,7 +242,7 @@ export default function HomePage() {
         {/* Colonne 3 - Slider d'images */}
         <div style={{ 
             padding: isMobile ? '50px -13px 20px 20px' : '20px', 
-            height: '82vh',
+            height: '87vh',
             borderRadius: '0',
             position: 'relative',
             overflow: 'hidden'
