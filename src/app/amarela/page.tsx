@@ -322,6 +322,34 @@ export default function AmarelaPage() {
                 </a>
               ))}
             </div>
+
+            {/* Footer spécifique à Amarela - en dessous des pochettes */}
+            <div style={{
+              height: '10px',
+              backgroundColor: 'transparent',
+              display: 'flex',
+              alignItems: 'center',
+              paddingLeft: '10px',
+              fontFamily: 'Lucida Console, monospace',
+              fontSize: '9.2px',
+              color: '#ed002a',
+              marginTop: '20px'
+            }}>
+              Powered by  {" "}
+              <a
+                href="https://wa.me/33608251223"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: '#ed002a',
+                  textDecoration: 'none',
+                  fontWeight: 'bold',
+                  marginLeft: '5px'
+                }}
+              >
+                JOSEPH-STUDIO.COM
+              </a>
+            </div>
           </div>
         )}
 
@@ -461,38 +489,6 @@ export default function AmarelaPage() {
           </div>
         )}
 
-      </div>
-
-      {/* Footer spécifique à Amarela - près de la colonne 2 */}
-      <div style={{
-        height: '10px',
-        backgroundColor: 'transparent',
-        display: 'flex',
-        alignItems: 'center',
-        paddingLeft: '10px',
-        fontFamily: 'Lucida Console, monospace',
-        fontSize: '9.2px',
-        color: '#ed002a',
-        marginTop: isMobile ? '20px' : '10px',
-        marginLeft: isMobile ? '0' : '18%',
-        width: isMobile ? '100%' : '41%',
-        position: 'relative',
-        zIndex: 10
-      }}>
-        Powered by  {" "}
-        <a
-          href="https://wa.me/33608251223"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: '#ed002a',
-            textDecoration: 'none',
-            fontWeight: 'bold',
-            marginLeft: '5px'
-          }}
-        >
-          JOSEPH-STUDIO.COM
-        </a>
       </div>
 
     </div>
