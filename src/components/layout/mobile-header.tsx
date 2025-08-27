@@ -47,27 +47,27 @@ export function MobileHeader() {
           fontSize: '0.8rem'
         }}>
           {pathname !== '/' && (
-            <a href="/" style={{ color: '#ed002a', textDecoration: 'none' }}>
+            <a href="/" style={{ color: '#ed002a', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = 'black'} onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}>
               About
             </a>
           )}
           {pathname !== '/la-serre-aux-papillons' && (
-            <a href="/la-serre-aux-papillons" style={{ color: '#ed002a', textDecoration: 'none' }}>
+            <a href="/la-serre-aux-papillons" style={{ color: '#ed002a', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = 'black'} onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}>
               Film
             </a>
           )}
           {pathname !== '/nyc-sessions' && (
-            <a href="/nyc-sessions" style={{ color: '#ed002a', textDecoration: 'none' }}>
+            <a href="/nyc-sessions" style={{ color: '#ed002a', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = 'black'} onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}>
               NYC
             </a>
           )}
           {pathname !== '/amarela' && (
-            <a href="/amarela" style={{ color: '#ed002a', textDecoration: 'none' }}>
+            <a href="/amarela" style={{ color: '#ed002a', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = 'black'} onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}>
               LP
             </a>
           )}
           {pathname !== '/co-productions' && (
-            <a href="/co-productions" style={{ color: '#ed002a', textDecoration: 'none' }}>
+            <a href="/co-productions" style={{ color: '#ed002a', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = 'black'} onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}>
               Co-Prod
             </a>
           )}

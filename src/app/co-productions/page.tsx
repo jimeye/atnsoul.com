@@ -115,7 +115,7 @@ export default function CoProductionsPage() {
             
             {/* Navigation */}
             <div className="desktop-navigation" style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '10px' }}>
-              <a href="/" style={{ color: 'black', textDecoration: 'none', marginBottom: '17px', display: 'block' }}>About</a>
+              <a href="/" style={{ color: 'black', textDecoration: 'none', marginBottom: '17px', display: 'block', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ed002a'} onMouseLeave={(e) => e.currentTarget.style.color = 'black'}>About</a>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                 <a href="/la-serre-aux-papillons" style={{ color: 'black', textDecoration: 'none' }}>
                   La Serre aux Papillons (Film)
