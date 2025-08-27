@@ -1,6 +1,21 @@
 "use client"
 
+import { useState, useEffect } from "react"
+
 export function Footer() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 1024)
+    }
+    
+    checkIsMobile()
+    window.addEventListener('resize', checkIsMobile)
+    
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [])
+
   return (
     <div style={{
       height: '10px',
@@ -11,7 +26,7 @@ export function Footer() {
       fontFamily: 'Lucida Console, monospace',
       fontSize: '9.2px',
       color: '#ed002a',
-      marginTop: '-26px'
+      marginTop: isMobile ? '0px' : '-26px'
     }}>
       Powered by  {" "}
       <a
