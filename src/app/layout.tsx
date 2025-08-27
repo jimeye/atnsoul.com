@@ -119,10 +119,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
-      <body className="antialiased">
+      <body className="antialiased" style={{ overflow: 'hidden', height: '100vh' }}>
         <PersonStructuredData />
-        <div className="relative">
-          <main className="flex-1">
+        <div className="relative" style={{ height: '100vh', overflow: 'hidden' }}>
+          <main className="flex-1" style={{ height: '100vh', overflow: 'hidden' }}>
             {children}
           </main>
         </div>
