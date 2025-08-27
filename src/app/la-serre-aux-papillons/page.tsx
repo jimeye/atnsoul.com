@@ -97,18 +97,18 @@ export default function LaSerrePage() {
           <div className="desktop-navigation" style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '10px' }}>
             <a href="/" style={{ color: 'black', textDecoration: 'none', marginBottom: '17px', display: 'block' }}>About</a>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <a href="/la-serre-aux-papillons" style={{ color: '#ed002a', textDecoration: 'none' }}>
-                La Serre aux Papillons (Film)
-              </a>
-              <a href="/nyc-sessions" style={{ color: 'black', textDecoration: 'none' }}>
-                NYC Sessions (Performance)
-              </a>
-              <a href="/amarela" style={{ color: 'black', textDecoration: 'none' }}>
-                Amarela (LP)
-              </a>
-              <a href="/co-productions" style={{ color: 'black', textDecoration: 'none' }}>
-                Co-Productions
-              </a>
+                              <a href="/la-serre-aux-papillons" style={{ color: '#ed002a', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ed002a'} onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}>
+                  La Serre aux Papillons (Film)
+                </a>
+                <a href="/nyc-sessions" style={{ color: 'black', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ed002a'} onMouseLeave={(e) => e.currentTarget.style.color = 'black'}>
+                  NYC Sessions (Performance)
+                </a>
+                <a href="/amarela" style={{ color: 'black', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ed002a'} onMouseLeave={(e) => e.currentTarget.style.color = 'black'}>
+                  Amarela (LP)
+                </a>
+                <a href="/co-productions" style={{ color: 'black', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ed002a'} onMouseLeave={(e) => e.currentTarget.style.color = 'black'}>
+                  Co-Productions
+                </a>
             </div>
           </div>
           
@@ -139,8 +139,11 @@ export default function LaSerrePage() {
                     color: '#ed002a', 
                     border: 'none', 
                     cursor: 'pointer',
-                    fontSize: '16px'
+                    fontSize: '16px',
+                    transition: 'color 0.3s ease'
                   }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'black'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}
                 >
                   {isPlaying ? '⏸' : '▶'}
                 </button>

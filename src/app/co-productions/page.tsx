@@ -159,8 +159,11 @@ export default function CoProductionsPage() {
                       color: '#ed002a', 
                       border: 'none', 
                       cursor: 'pointer',
-                      fontSize: '16px'
+                      fontSize: '16px',
+                      transition: 'color 0.3s ease'
                     }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'black'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}
                   >
                     {isPlaying ? '⏸' : '▶'}
                   </button>

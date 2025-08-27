@@ -138,19 +138,22 @@ export default function AmarelaPage() {
                   }}>
                     unreleased
                   </span>
-                  <button 
-                    onClick={togglePlay}
-                    style={{ 
-                      padding: '5px 10px', 
-                      backgroundColor: 'transparent', 
-                      color: '#ed002a', 
-                      border: 'none', 
-                      cursor: 'pointer',
-                      fontSize: '16px'
-                    }}
-                  >
-                    {isPlaying ? '⏸' : '▶'}
-                  </button>
+                                  <button 
+                  onClick={togglePlay}
+                  style={{ 
+                    padding: '5px 10px', 
+                    backgroundColor: 'transparent', 
+                    color: '#ed002a', 
+                    border: 'none', 
+                    cursor: 'pointer',
+                    fontSize: '16px',
+                    transition: 'color 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'black'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}
+                >
+                  {isPlaying ? '⏸' : '▶'}
+                </button>
                 </div>
                 
               </div>

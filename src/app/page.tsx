@@ -114,16 +114,16 @@ export default function HomePage() {
             <div className="desktop-navigation" style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '10px' }}>
               <div style={{ color: 'black', marginBottom: '17px' }}>About</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                <a href="/la-serre-aux-papillons" style={{ color: 'black', textDecoration: 'none' }}>
+                <a href="/la-serre-aux-papillons" style={{ color: 'black', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ed002a'} onMouseLeave={(e) => e.currentTarget.style.color = 'black'}>
                   La Serre aux Papillons (Film)
                 </a>
-                <a href="/nyc-sessions" style={{ color: 'black', textDecoration: 'none' }}>
+                <a href="/nyc-sessions" style={{ color: 'black', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ed002a'} onMouseLeave={(e) => e.currentTarget.style.color = 'black'}>
                   NYC Sessions (Performance)
                 </a>
-                <a href="/amarela" style={{ color: 'black', textDecoration: 'none' }}>
+                <a href="/amarela" style={{ color: 'black', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ed002a'} onMouseLeave={(e) => e.currentTarget.style.color = 'black'}>
                   Amarela (LP)
                 </a>
-                <a href="/co-productions" style={{ color: 'black', textDecoration: 'none' }}>
+                <a href="/co-productions" style={{ color: 'black', textDecoration: 'none', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ed002a'} onMouseLeave={(e) => e.currentTarget.style.color = 'black'}>
                   Co-Productions
                 </a>
               </div>
@@ -156,8 +156,11 @@ export default function HomePage() {
                       color: '#ed002a', 
                       border: 'none', 
                       cursor: 'pointer',
-                      fontSize: '16px'
+                      fontSize: '16px',
+                      transition: 'color 0.3s ease'
                     }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'black'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#ed002a'}
                   >
                     {isPlaying ? '⏸' : '▶'}
                   </button>
