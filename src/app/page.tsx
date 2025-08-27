@@ -3,6 +3,39 @@
 import { useState, useEffect, useRef } from "react"
 import { MusicPlayer } from "@/components/music/music-player"
 import { MobileHeader } from "@/components/layout/mobile-header"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About | ATN Soul",
+  description: "Ethan Fellous, also known as ATN Soul, is a musician, producer, composer, and lyricist from Paris. Discover his journey from Hip Hop to Jazz harmony and his work on contemporary music production.",
+  keywords: [
+    "Ethan Fellous", 
+    "ATN Soul", 
+    "Paris music producer", 
+    "jazz harmony", 
+    "music composition", 
+    "contemporary music", 
+    "French musician", 
+    "music production"
+  ],
+  openGraph: {
+    title: "About Ethan Fellous | ATN Soul",
+    description: "Ethan Fellous, also known as ATN Soul, is a musician, producer, composer, and lyricist from Paris. Discover his journey from Hip Hop to Jazz harmony.",
+    url: "https://atnsoul.com",
+    images: [
+      {
+        url: "/images/atn-soul-atnsoul-producer-paris-ultra-soul-ultrasoul-portrait-1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ethan Fellous - ATN Soul Portrait",
+      },
+    ],
+  },
+  twitter: {
+    title: "About Ethan Fellous | ATN Soul",
+    description: "Ethan Fellous, also known as ATN Soul, is a musician, producer, composer, and lyricist from Paris.",
+  },
+}
 
 // Fonction pour détecter si on est sur mobile/tablette
 function useIsMobile() {
