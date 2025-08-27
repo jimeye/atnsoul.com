@@ -10,7 +10,8 @@ export function Footer() {
       paddingLeft: '10px',
       fontFamily: 'Lucida Console, monospace',
       fontSize: '9.2px',
-      color: '#ed002a'
+      color: '#ed002a',
+      marginTop: '-26px'
     }}>
       Powered by  {" "}
       <a
