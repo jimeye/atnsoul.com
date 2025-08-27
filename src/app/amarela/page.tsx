@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { MobileHeader } from "@/components/layout/mobile-header"
 
 // Fonction pour détecter si on est sur mobile/tablette
@@ -23,6 +23,21 @@ function useIsMobile() {
 
 export default function AmarelaPage() {
   const isMobile = useIsMobile()
+  
+  // Hooks pour le lecteur audio
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement>(null)
+
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }
 
   const vinylCovers = [
     {
@@ -68,62 +83,101 @@ export default function AmarelaPage() {
         padding: '0'
       }}>
 
-        {/* Colonne 1 - Navigation - visible seulement sur desktop */}
-        <div style={{
-          padding: '0', 
-          height: '90vh',
-          borderRadius: '0',
-          position: 'relative',
-          display: isMobile ? 'none' : 'block'
-        }} className="mobile-auto-height">
-          {/* Logo ATN SOUL */}
-          <a href="/" style={{ textDecoration: 'none' }}>
-            <img
-              src="/atn-soul-website-typo-producer-paris-ultra-soul-ultrasoul.png"
-              alt="ATN SOUL"
-              style={{ width: '92.4%', height: 'auto', marginBottom: '46px', marginLeft: '0%' }}
-            />
-          </a>
+        {/* Colonne 1 - Rouge - visible seulement sur desktop */}
+        <div style={{ 
+            padding: '0', 
+            height: '90vh',
+            borderRadius: '0',
+            position: 'relative',
+            display: isMobile ? 'none' : 'block'
+          }} className="mobile-auto-height">
+            {/* Logo ATN SOUL */}
+            <a href="/" style={{ textDecoration: 'none' }}>
+              <img 
+                src="/atn-soul-website-typo-producer-paris-ultra-soul-ultrasoul.png" 
+                alt="ATN SOUL" 
+                style={{ width: '92.4%', height: 'auto', marginBottom: '46px', marginLeft: '0%' }}
+              />
+            </a>
+            
+            {/* Navigation */}
+            <div className="desktop-navigation" style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '10px' }}>
+              <a href="/" style={{ color: 'black', textDecoration: 'none', marginBottom: '17px', display: 'block' }}>About</a>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                <a href="/la-serre-aux-papillons" style={{ color: 'black', textDecoration: 'none' }}>
+                  La Serre aux Papillons (Film)
+                </a>
+                <a href="/nyc-sessions" style={{ color: 'black', textDecoration: 'none' }}>
+                  NYC Sessions (Performance)
+                </a>
+                <a href="/amarela" style={{ color: '#ed002a', textDecoration: 'none' }}>
+                  Amarela (LP)
+                </a>
+                <a href="/co-productions" style={{ color: 'black', textDecoration: 'none' }}>
+                  Co-Productions
+                </a>
+              </div>
+            </div>
+            
+            {/* Lecteur Audio + Spotify */}
+            <div style={{ marginTop: '26px' }}>
+              <audio ref={audioRef} src="/audio/atnsoul-track.mp3" />
+              <div style={{ 
+                padding: '10px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '10px'
+              }}>
+                {/* Bouton Play/Pause Audio */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ 
+                    color: '#ed002a', 
+                    fontFamily: 'Lucida Console, monospace',
+                    fontSize: '0.85rem',
+                    marginRight: '-5px'
+                  }}>
+                    unreleased
+                  </span>
+                  <button 
+                    onClick={togglePlay}
+                    style={{ 
+                      padding: '5px 10px', 
+                      backgroundColor: 'transparent', 
+                      color: '#ed002a', 
+                      border: 'none', 
+                      cursor: 'pointer',
+                      fontSize: '16px'
+                    }}
+                  >
+                    {isPlaying ? '⏸' : '▶'}
+                  </button>
+                </div>
+                
+              </div>
+            </div>
 
-          {/* Navigation */}
-          <div className="desktop-navigation" style={{ marginBottom: '20px', fontFamily: 'Lucida Console, monospace', fontSize: '0.81rem', marginLeft: '10px' }}>
-            <a href="/" style={{ color: 'black', textDecoration: 'none', marginBottom: '17px', display: 'block' }}>About</a>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <a href="/la-serre-aux-papillons" style={{ color: 'black', textDecoration: 'none' }}>
-                La Serre aux Papillons (Film)
-              </a>
-              <a href="/nyc-sessions" style={{ color: 'black', textDecoration: 'none' }}>
-                NYC Sessions (Performance)
-              </a>
-              <a href="/amarela" style={{ color: '#ed002a', textDecoration: 'none' }}>
-                Amarela (LP)
-              </a>
-              <a href="/co-productions" style={{ color: 'black', textDecoration: 'none' }}>
-                Co-Productions
-              </a>
+            {/* Liens streaming en bas à gauche */}
+            <div style={{ 
+              position: 'absolute', 
+              bottom: '20px', 
+              left: '0', 
+              fontFamily: 'Lucida Console, monospace', 
+              fontSize: '0.72rem',
+              textAlign: 'left',
+              marginLeft: '10px'
+            }}>
+              <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
+              <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-start' }}>
+                <a href="https://music.apple.com/fr/artist/atn-soul/1455380348" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+                  Apple Music
+                </a>
+                <span style={{ color: '#0066cc' }}>|</span>
+                <a href="https://open.spotify.com" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+                  Spotify
+                </a>
+              </div>
             </div>
           </div>
-
-          {/* Liens streaming en bas à gauche */}
-          <div style={{
-            position: 'absolute',
-            bottom: '20px',
-            left: '10px',
-            fontFamily: 'Lucida Console, monospace',
-            fontSize: '0.81rem'
-          }}>
-            <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <a href="https://open.spotify.com/artist/your-spotify-id" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
-                Spotify
-              </a>
-              <span style={{ color: '#0066cc' }}>|</span>
-              <a href="https://music.apple.com/artist/your-apple-id" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
-                Apple Music
-              </a>
-            </div>
-          </div>
-        </div>
 
         {/* Colonne 2 - Contenu Amarela - Desktop */}
         {!isMobile && (

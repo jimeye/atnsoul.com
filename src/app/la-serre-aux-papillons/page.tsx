@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { MobileHeader } from "@/components/layout/mobile-header"
 
 // Fonction pour détecter si on est sur mobile/tablette
@@ -25,6 +25,21 @@ export default function LaSerrePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const isMobile = useIsMobile()
   const [isHovered, setIsHovered] = useState(false)
+  
+  // Hooks pour le lecteur audio
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement>(null)
+
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }
 
   // Défilement automatique toutes les 2 secondes
   useEffect(() => {
@@ -94,6 +109,43 @@ export default function LaSerrePage() {
               <a href="/co-productions" style={{ color: 'black', textDecoration: 'none' }}>
                 Co-Productions
               </a>
+            </div>
+          </div>
+          
+          {/* Lecteur Audio + Spotify */}
+          <div style={{ marginTop: '26px' }}>
+            <audio ref={audioRef} src="/audio/atnsoul-track.mp3" />
+            <div style={{ 
+              padding: '10px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '10px'
+            }}>
+              {/* Bouton Play/Pause Audio */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ 
+                  color: '#ed002a', 
+                  fontFamily: 'Lucida Console, monospace',
+                  fontSize: '0.85rem',
+                  marginRight: '-5px'
+                }}>
+                  unreleased
+                </span>
+                <button 
+                  onClick={togglePlay}
+                  style={{ 
+                    padding: '5px 10px', 
+                    backgroundColor: 'transparent', 
+                    color: '#ed002a', 
+                    border: 'none', 
+                    cursor: 'pointer',
+                    fontSize: '16px'
+                  }}
+                >
+                  {isPlaying ? '⏸' : '▶'}
+                </button>
+              </div>
+              
             </div>
           </div>
 
