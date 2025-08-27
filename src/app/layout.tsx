@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { PersonStructuredData } from "./structured-data";
 import { CookieConsent } from "@/components/ui/cookie-consent";
+import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -125,6 +126,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
+        <Footer />
         <CookieConsent />
       </body>
     </html>
