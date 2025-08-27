@@ -334,8 +334,10 @@ export default function AmarelaPage() {
               fontSize: '9.2px',
               color: '#ed002a',
               marginTop: '20px',
-              gridColumn: '2 / 3',
-              width: '100%'
+              position: 'absolute',
+              left: '18%',
+              width: '41%',
+              zIndex: 10
             }}>
               Powered by  {" "}
               <a
