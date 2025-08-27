@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { MobileHeader } from "@/components/layout/mobile-header"
+import { useSwipeNavigation } from "@/lib/hooks/useSwipeNavigation"
 
 // Fonction pour détecter si on est sur mobile/tablette
 function useIsMobile() {
@@ -35,6 +36,7 @@ export default function HomePage() {
   const spotifyRef = useRef<HTMLIFrameElement>(null)
   const spotifyWindowRef = useRef<Window | null>(null)
   const isMobile = useIsMobile()
+  const { containerRef, isSwiping } = useSwipeNavigation()
 
   // Défilement automatique toutes les 2 secondes
   useEffect(() => {
@@ -78,12 +80,15 @@ export default function HomePage() {
     }
   }
   return (
-          <div style={{ 
+          <div 
+            ref={containerRef}
+            style={{ 
         padding: '0', 
         margin: '0', 
         minHeight: '100vh',
         overflow: 'hidden',
-        width: '100vw'
+        width: '100vw',
+        cursor: isSwiping ? 'grabbing' : 'grab'
       }}>
       
         {/* Header Mobile - visible seulement sur mobile/tablette */}

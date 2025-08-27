@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { MobileHeader } from "@/components/layout/mobile-header"
+import { useSwipeNavigation } from "@/lib/hooks/useSwipeNavigation"
 
 // Fonction pour détecter si on est sur mobile/tablette
 function useIsMobile() {
@@ -27,6 +28,7 @@ export default function CoProductionsPage() {
   // Hooks pour le lecteur audio
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
+  const { containerRef, isSwiping } = useSwipeNavigation()
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -78,11 +80,14 @@ export default function CoProductionsPage() {
   ]
 
   return (
-    <div style={{
-      padding: '0',
-      margin: '0',
-      minHeight: '100vh'
-    }}>
+    <div 
+      ref={containerRef}
+      style={{
+        padding: '0',
+        margin: '0',
+        minHeight: '100vh',
+        cursor: isSwiping ? 'grabbing' : 'grab'
+      }}>
     
       {/* Header Mobile - visible seulement sur mobile/tablette */}
       {isMobile && <MobileHeader />}
