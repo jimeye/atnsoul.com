@@ -161,7 +161,11 @@ export default function CoProductionsPage() {
               </div>
               
               <p style={{ marginBottom: '15px' }}>
-                a collection of songs I've collaborated on, as a producer, a bassist ... &lt;3
+                a collection of songs I've collaborated on, as a producer, a bassist ...
+              </p>
+              
+              <p style={{ marginBottom: '15px', color: 'black', backgroundColor: '#ffff00' }}>
+                work for others
               </p>
             </div>
 
@@ -252,7 +256,11 @@ export default function CoProductionsPage() {
               </div>
               
               <p style={{ marginBottom: '15px' }}>
-                a collection of songs I've collaborated on, as a producer, a bassist ... &lt;3
+                a collection of songs I've collaborated on, as a producer, a bassist ...
+              </p>
+              
+              <p style={{ marginBottom: '15px', color: 'black', backgroundColor: '#ffff00' }}>
+                work for others
               </p>
             </div>
           </div>
