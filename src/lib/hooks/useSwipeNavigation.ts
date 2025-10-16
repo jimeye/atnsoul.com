@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 
 interface SwipeNavigationConfig {
@@ -12,11 +12,11 @@ export function useSwipeNavigation(config: SwipeNavigationConfig = {}) {
   const { threshold = 100, velocity = 0.3 } = config
   const router = useRouter()
   const [isSwiping, setIsSwiping] = useState(false)
-  const [startX, setStartX] = useState(0)
-  const [startY, setStartY] = useState(0)
-  const [startTime, setStartTime] = useState(0)
-  const [currentX, setCurrentX] = useState(0)
-  const [currentY, setCurrentY] = useState(0)
+  const startXRef = useRef(0)
+  const startYRef = useRef(0)
+  const startTimeRef = useRef(0)
+  const currentXRef = useRef(0)
+  const currentYRef = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
   // Configuration des pages et leur ordre
@@ -52,75 +52,65 @@ export function useSwipeNavigation(config: SwipeNavigationConfig = {}) {
     }
   }
 
-  const handleTouchStart = (e: TouchEvent | MouseEvent) => {
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
-    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY
+  const handleTouchStart = useCallback((e: any) => {
+    const isTouch = typeof e === 'object' && 'touches' in e
+    const clientX = isTouch ? e.touches[0].clientX : e.clientX
+    const clientY = isTouch ? e.touches[0].clientY : e.clientY
 
-    setStartX(clientX)
-    setStartY(clientY)
-    setCurrentX(clientX)
-    setCurrentY(clientY)
-    setStartTime(Date.now())
+    startXRef.current = clientX
+    startYRef.current = clientY
+    currentXRef.current = clientX
+    currentYRef.current = clientY
+    startTimeRef.current = Date.now()
     setIsSwiping(true)
-  }
+  }, [])
 
-  const handleTouchMove = (e: TouchEvent | MouseEvent) => {
+  const handleTouchMove = useCallback((e: any) => {
+    if (!isSwiping) return
+    const isTouch = typeof e === 'object' && 'touches' in e
+    const clientX = isTouch ? e.touches[0].clientX : e.clientX
+    const clientY = isTouch ? e.touches[0].clientY : e.clientY
+    currentXRef.current = clientX
+    currentYRef.current = clientY
+  }, [isSwiping])
+
+  const handleTouchEnd = useCallback(() => {
     if (!isSwiping) return
 
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
-    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY
+    const deltaX = currentXRef.current - startXRef.current
+    const deltaY = currentYRef.current - startYRef.current
+    const deltaTime = Date.now() - startTimeRef.current
+    const velocityX = Math.abs(deltaX) / Math.max(deltaTime, 1)
 
-    setCurrentX(clientX)
-    setCurrentY(clientY)
-  }
-
-  const handleTouchEnd = () => {
-    if (!isSwiping) return
-
-    const deltaX = currentX - startX
-    const deltaY = currentY - startY
-    const deltaTime = Date.now() - startTime
-    const velocityX = Math.abs(deltaX) / deltaTime
-
-    // Vérifier si le mouvement est principalement horizontal
     const isHorizontalSwipe = Math.abs(deltaX) > Math.abs(deltaY)
 
     if (isHorizontalSwipe && Math.abs(deltaX) > threshold && velocityX > velocity) {
-      if (deltaX > 0) {
-        // Glissement vers la droite -> page précédente
-        navigateToPage('prev')
-      } else {
-        // Glissement vers la gauche -> page suivante
-        navigateToPage('next')
-      }
+      navigateToPage(deltaX > 0 ? 'prev' : 'next')
     }
 
     setIsSwiping(false)
-  }
+  }, [isSwiping, threshold, velocity])
 
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
 
-    // Événements tactiles
     container.addEventListener('touchstart', handleTouchStart, { passive: true })
     container.addEventListener('touchmove', handleTouchMove, { passive: true })
     container.addEventListener('touchend', handleTouchEnd, { passive: true })
-
-    // Événements souris (pour le développement)
-    container.addEventListener('mousedown', handleTouchStart, { passive: true })
-    container.addEventListener('mousemove', handleTouchMove, { passive: true })
-    container.addEventListener('mouseup', handleTouchEnd, { passive: true })
+    container.addEventListener('mousedown', handleTouchStart as any, { passive: true })
+    container.addEventListener('mousemove', handleTouchMove as any, { passive: true })
+    container.addEventListener('mouseup', handleTouchEnd as any, { passive: true })
 
     return () => {
-      container.removeEventListener('touchstart', handleTouchStart)
-      container.removeEventListener('touchmove', handleTouchMove)
-      container.removeEventListener('touchend', handleTouchEnd)
-      container.removeEventListener('mousedown', handleTouchStart)
-      container.removeEventListener('mousemove', handleTouchMove)
-      container.removeEventListener('mouseup', handleTouchEnd)
+      container.removeEventListener('touchstart', handleTouchStart as any)
+      container.removeEventListener('touchmove', handleTouchMove as any)
+      container.removeEventListener('touchend', handleTouchEnd as any)
+      container.removeEventListener('mousedown', handleTouchStart as any)
+      container.removeEventListener('mousemove', handleTouchMove as any)
+      container.removeEventListener('mouseup', handleTouchEnd as any)
     }
-  }, [isSwiping, startX, startY, currentX, currentY, startTime])
+  }, [handleTouchStart, handleTouchMove, handleTouchEnd])
 
   return { containerRef, isSwiping }
 }

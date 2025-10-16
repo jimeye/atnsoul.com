@@ -193,11 +193,11 @@ export default function CoProductionsPage() {
             }}>
               <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
               <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-start' }}>
-                <a href="https://music.apple.com/fr/artist/atn-soul/1455380348" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+                <a href="https://music.apple.com/fr/artist/atn-soul/1455380348" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
                   Apple Music
                 </a>
                 <span style={{ color: '#0066cc' }}>|</span>
-                <a href="https://open.spotify.com" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+                <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
                   Spotify
                 </a>
               </div>
@@ -335,7 +335,7 @@ export default function CoProductionsPage() {
         {/* Pochettes Vinyl Mobile */}
         {isMobile && (
           <div style={{
-            padding: '50px -13px 20px 20px',
+            padding: '50px 0 20px 20px',
             height: 'auto',
             borderRadius: '0',
             overflow: 'auto'
