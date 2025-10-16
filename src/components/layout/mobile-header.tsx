@@ -190,6 +190,7 @@ export function MobileHeader() {
                 <a 
                   href="https://music.apple.com/fr/artist/atn-soul/1455380348" 
                   target="_blank"
+                  rel="noopener noreferrer"
                   style={{ 
                     color: '#0066cc', 
                     textDecoration: 'none',
@@ -203,6 +204,7 @@ export function MobileHeader() {
                 <a 
                   href="https://open.spotify.com" 
                   target="_blank"
+                  rel="noopener noreferrer"
                   style={{ 
                     color: '#0066cc', 
                     textDecoration: 'none',

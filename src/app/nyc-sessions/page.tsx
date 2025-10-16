@@ -297,7 +297,7 @@ export default function NYCSessionsPage() {
         {/* Vidéos Mobile */}
         {isMobile && (
           <div style={{
-            padding: '50px -13px 20px 20px',
+            padding: '50px 0 20px 20px',
             height: 'auto',
             borderRadius: '0',
             overflow: 'auto'

@@ -164,11 +164,11 @@ export default function LaSerrePage() {
           }}>
             <div style={{ color: '#0066cc', marginBottom: '5px' }}>Stream now</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-start' }}>
-              <a href="https://music.apple.com/fr/artist/atn-soul/1455380348" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+              <a href="https://music.apple.com/fr/artist/atn-soul/1455380348" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
                 Apple Music
               </a>
               <span style={{ color: '#0066cc' }}>|</span>
-              <a href="https://open.spotify.com" target="_blank" style={{ color: '#0066cc', textDecoration: 'none' }}>
+              <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
                 Spotify
               </a>
             </div>
@@ -269,7 +269,7 @@ export default function LaSerrePage() {
               cursor: 'pointer',
               transition: 'opacity 0.3s ease'
             }}
-            onClick={() => window.open('https://www.girlsinfilm.net/videos/the-butterfly-house', '_blank')}
+            onClick={() => window.open('https://www.girlsinfilm.net/videos/the-butterfly-house', '_blank', 'noopener,noreferrer')}
             >
               distributed through Girls In Film
             </div>
@@ -279,7 +279,8 @@ export default function LaSerrePage() {
         {/* Colonne 2 - Contenu La Serre aux Papillons - Mobile */}
         {isMobile && (
           <div style={{
-            padding: '-20px 0 50px 0',
+            padding: '0 0 50px 0',
+            marginTop: '-20px',
             height: 'auto',
             borderRadius: '0',
             overflow: 'auto'
